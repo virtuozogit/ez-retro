@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-center">
+            <h2><%= req.user.username %></h2>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-12 text-center">
+                    <h5>
+                        <% if (req.user.checkSub) {%>
+                            Subscription Status: <span class="badge bg-success">Subscribed</span>
+                        <% } else { %>
+                            Subscription Status: <span class="badge bg-danger">Not Subscribed</span>
+                        <% }  %>
+                    </h5>
+                    <% if (req.user.checkSub) {%>
+                        <!-- 2024-12-31 -->
+                        <p>Expires on: <strong><%= req.user.formatDateSub %></strong></p>
+                    <% }  %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a class="btn btn-primary" href="/plans">Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

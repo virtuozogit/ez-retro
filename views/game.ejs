@@ -1,0 +1,19 @@
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div style="width:1080px;height:720px;max-width:100%">
+        <div id="game"></div>
+    </div>
+    <script>
+        EJS_player = "#game";
+
+        // Core
+        EJS_core = "<%= game.core %>";
+
+        EJS_gameName = "<%= game.name %>";
+        EJS_color = "#0064ff";
+        EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
+
+        // Game URL
+        EJS_gameUrl = "<%= game.gameUrl %>";
+    </script>
+    <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+</div>
