@@ -27,10 +27,36 @@
         </div>
     </div>
 
+    <!-- username -->
     <div class="card text-white bg-secondary" style="border-radius: 20px; margin-top: 40px;">
         <div class="card-header" style="padding: 25px 25px 17px 25px;">
-            <div class="card-subtitle mb-1 text-muted">Welcome!</div>
             <h2><%= req.user.username %></h2>
+            <div class="card-subtitle mb-1 text-muted">Welcome!</div>
+        </div>
+    </div>
+    <!-- details -->
+    <div class="card text-white bg-secondary" style="border-radius: 20px; margin-top: 40px;">
+        <div class="card-header" style="padding: 25px 25px 17px 25px;">
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <h3>
+                        <% if (req.user.checkSub) {%>
+                            Subscription Status: <span class="badge bg-success">Subscribed</span>
+                        <% } else { %>
+                            Subscription Status: <span class="badge bg-danger">Not Subscribed</span>
+                        <% }  %>
+                    </h>
+                    <% if (req.user.checkSub) {%>
+                        <!-- 2024-12-31 -->
+                        <h3>Expires on: <strong><%= req.user.formatDateSub %></strong></h3>
+                    <% }  %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <a class="btn btn-primary" href="/plans">Subscribe</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
