@@ -1,12 +1,12 @@
 <!-- Container for game images and navigation arrows -->
-<div class="container mt-5">
-  <div class="row position-relative">
-      <!-- Back Arrow -->
-      <a href="/prev" class="position-absolute top-50 start-0 translate-middle-y text-white fs-3" style="left: 0; z-index: 2;">
-          <i class="fas fa-chevron-left"></i>
-      </a>
+<div class="container mt-5 position-relative">
+  <!-- Back Arrow -->
+  <a href="/prev" class="position-absolute top-50 start-0 translate-middle-y text-white fs-3" style="left: -2.5rem; z-index: 2;">
+      <i class="fas fa-chevron-left"></i>
+  </a>
 
-      <!-- Game Images -->
+  <!-- Game Images -->
+  <div class="row overflow-auto d-flex" style="scroll-behavior: smooth;">
       <% items.forEach(item => { %>
       <div class="col-md-4 mb-4">
           <div class="card text-bg-dark">
@@ -20,12 +20,12 @@
           </div>
       </div>
       <% }) %>
-
-      <!-- Forward Arrow -->
-      <a href="/next" class="position-absolute top-50 end-0 translate-middle-y text-white fs-3" style="right: 0; z-index: 2;">
-          <i class="fas fa-chevron-right"></i>
-      </a>
   </div>
+
+  <!-- Forward Arrow -->
+  <a href="/next" class="position-absolute top-50 end-0 translate-middle-y text-white fs-3" style="right: -2.5rem; z-index: 2;">
+      <i class="fas fa-chevron-right"></i>
+  </a>
 </div>
 
 <!-- Ensure Font Awesome is included -->
