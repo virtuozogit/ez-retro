@@ -47,6 +47,7 @@
             background-color: rgba(0, 0, 0, 0.5);
             border: none;
             cursor: pointer;
+            z-index: 1000;
         }
         .carousel-control-prev {
             left: 10px;
@@ -88,10 +89,10 @@
     const prevButton = document.querySelector('.carousel-control-prev');
     const nextButton = document.querySelector('.carousel-control-next');
     const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
     let activeIndex = 0; // Start with the first item as active
 
     function updateCarousel() {
-        const totalItems = items.length;
         const itemWidth = items[0].offsetWidth;
         const offset = -activeIndex * itemWidth;
 
@@ -103,12 +104,12 @@
     }
 
     prevButton.addEventListener('click', () => {
-        activeIndex = (activeIndex - 1 + items.length) % items.length;
+        activeIndex = (activeIndex - 1 + totalItems) % totalItems;
         updateCarousel();
     });
 
     nextButton.addEventListener('click', () => {
-        activeIndex = (activeIndex + 1) % items.length;
+        activeIndex = (activeIndex + 1) % totalItems;
         updateCarousel();
     });
 
