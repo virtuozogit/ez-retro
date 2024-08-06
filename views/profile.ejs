@@ -35,17 +35,17 @@
         </div>
     </div>
     <!-- details -->
-    <div class="card text-white bg-secondary" style="border-radius: 20px; margin-top: 20px;">
+    <div class="card text-white bg-dark" style="border-radius: 20px; margin-top: 20px;">
         <div class="card-header" style="padding: 25px 25px 17px 25px;">
             <div class="row mb-3">
                 <div class="col-md-12">
-                    <p>
+                    <h6>
                         <% if (req.user.checkSub) {%>
                             Subscription Status: <span class="badge bg-success">Subscribed</span>
                         <% } else { %>
                             Subscription Status: <span class="badge bg-danger">Not Subscribed</span>
                         <% }  %>
-                    </p>
+                    </h6>
                     <% if (req.user.checkSub) {%>
                         <!-- 2024-12-31 -->
                         <h6>Expires on: <strong><%= req.user.formatDateSub %></strong></h6>
