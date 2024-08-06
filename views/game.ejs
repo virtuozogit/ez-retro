@@ -1,76 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= game.name %> - Play Now!</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            height: 100vh;
-            font-family: 'Press Start 2P', cursive;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .game-info-box {
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            color: #fff;
-            padding: 20px;
-            max-width: 400px;
-            font-size: 14px;
-        }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        kbd {
-            background-color: #333;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 3px;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <div class="container-fluid" style="height: 100vh;">
-        <div class="row h-100 align-items-center">
-            <!-- Game Display Container (Left Side) -->
-            <div class="col-md-7">
-                <div style="width:100%; height:auto; aspect-ratio:3/2; max-width: 100%">
-                    <div id="game"></div>
-                </div>
+<div class="container-fluid" style="height: 100vh; overflow: hidden; position: relative;" id="game-container">
+    <div class="row h-100 align-items-center" style="z-index: 1; position: relative;">
+        <!-- Game Display Container (Left Side) -->
+        <div class="col-md-7">
+            <div style="width:100%; height:auto; aspect-ratio:3/2; max-width: 100%">
+                <div id="game"></div>
             </div>
+        </div>
 
-            <!-- Game Details and Controls Box (Right Side) -->
-            <div class="col-md-5">
-                <div class="game-info-box">
-                    <!-- Game Name Heading -->
-                    <h1 class="game-title mb-4"><%= game.name %></h1>
+        <!-- Game Details and Controls Box (Right Side) -->
+        <div class="col-md-5">
+            <div class="game-info-box p-4" style="background-color: rgba(0, 0, 0, 0.7); border-radius: 10px; color: #fff; font-family: 'Press Start 2P', cursive;">
+                <!-- Game Name Heading -->
+                <h1 class="game-title mb-4" style="color: #fff; font-family: 'Press Start 2P', cursive; font-size: 24px;">
+                    <%= game.name %>
+                </h1>
 
-                    <!-- Game Objective -->
-                    <div id="game-description" class="mb-4">
-                        <!-- Description will be filled in by JavaScript -->
-                    </div>
+                <!-- Game Objective -->
+                <div id="game-description" class="mb-4" style="font-size: 16px;">
+                    <!-- Description will be filled in by JavaScript -->
+                </div>
 
-                    <!-- Game Controls -->
-                    <div id="game-controls">
-                        <!-- Controls will be filled in by JavaScript -->
-                    </div>
+                <!-- Game Controls -->
+                <div id="game-controls" style="font-size: 16px;">
+                    <!-- Controls will be filled in by JavaScript -->
                 </div>
             </div>
         </div>
@@ -94,6 +46,7 @@
         window.onload = function() {
             const gameDescription = document.getElementById('game-description');
             const gameControls = document.getElementById('game-controls');
+            const gameContainer = document.getElementById('game-container');
 
             switch (EJS_gameName) {
                 case 'Super Mario Bros.':
@@ -113,7 +66,7 @@
                         </ul>
                     `;
 
-                    document.body.style.backgroundImage = "url('mariobg.jpg')";
+                    gameContainer.style.backgroundImage = "url('mariobg.jpg')";
                     break;
 
                 case 'Sonic The Hedgehog':
@@ -133,7 +86,7 @@
                         </ul>
                     `;
 
-                    document.body.style.backgroundImage = "url('sonicbg.jpg')";
+                    gameContainer.style.backgroundImage = "url('sonicbg.jpg')";
                     break;
 
                 case 'Sub-Terrania':
@@ -153,7 +106,7 @@
                         </ul>
                     `;
 
-                    document.body.style.backgroundImage = "url('subbg.png')";
+                    gameContainer.style.backgroundImage = "url('subbg.png')";
                     break;
 
                 case "Kirby's Dream Land":
@@ -174,7 +127,7 @@
                         </ul>
                     `;
 
-                    document.body.style.backgroundImage = "url('kirbybg.png')";
+                    gameContainer.style.backgroundImage = "url('kirbybg.png')";
                     break;
 
                 default:
@@ -184,12 +137,16 @@
                     gameControls.innerHTML = `
                         <strong>Controls:</strong> No controls available for this game.
                     `;
-                    document.body.style.backgroundImage = "none";
+                    gameContainer.style.backgroundImage = "none";
                     break;
             }
+
+            // Styling for the background image
+            gameContainer.style.backgroundSize = "cover";
+            gameContainer.style.backgroundPosition = "center";
+            gameContainer.style.backgroundRepeat = "no-repeat";
         };
     </script>
 
     <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
-</body>
-</html>
+</div>
