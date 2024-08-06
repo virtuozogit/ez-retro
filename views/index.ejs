@@ -1,135 +1,137 @@
-<!-- Container for navigation arrows and game images -->
-<div class="container mt-5 position-relative">
-    <!-- Navigation Arrows Container -->
-    <div class="d-flex align-items-center justify-content-between">
-        <!-- Back Arrow -->
-        <a href="/prev" class="arrow-link position-relative">
-            <div class="arrow-box shadow">
-                <i class="fas fa-chevron-left"></i>
-            </div>
-        </a>
-
-        <!-- Game Images Container -->
-        <div class="row overflow-auto d-flex align-items-center flex-grow-1 py-3">
-            <% items.forEach(item => { %>
-            <div class="col-md-4 mb-4">
-                <div class="card game-card text-bg-dark shadow-lg">
-                    <a href="/game/<%= item._id %>" class="game-link">
-                        <div class="ratio position-relative" style="--bs-aspect-ratio: 115%;">
-                            <img src="<%= item.image %>" class="object-fit-cover rounded" alt="Game Image">
-                            <div class="card-overlay d-flex align-items-center justify-content-center">
-                                <h5 class="text-light card-title"><%= item.title %></h5>
-                            </div>
+<!-- Container for the arcade-style game display -->
+<div class="container mt-5 position-relative arcade-container">
+    <div class="row d-flex justify-content-center align-items-center">
+        <!-- Retro TV Frame -->
+        <div class="tv-frame">
+            <div class="screen">
+                <div class="row overflow-auto d-flex align-items-center py-3">
+                    <% items.forEach(item => { %>
+                    <div class="col-md-4 mb-4">
+                        <div class="card game-card text-bg-dark shadow-lg">
+                            <a href="/game/<%= item._id %>" class="game-link">
+                                <div class="ratio position-relative" style="--bs-aspect-ratio: 100%;">
+                                    <img src="<%= item.image %>" class="object-fit-cover rounded" alt="Game Image">
+                                    <div class="card-overlay d-flex align-items-center justify-content-center">
+                                        <h5 class="text-light card-title"><%= item.title %></h5>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
+                    </div>
+                    <% }) %>
                 </div>
             </div>
-            <% }) %>
-        </div>
-
-        <!-- Forward Arrow -->
-        <a href="/next" class="arrow-link position-relative">
-            <div class="arrow-box shadow">
-                <i class="fas fa-chevron-right"></i>
+            <!-- Controls (just for design purposes) -->
+            <div class="tv-controls">
+                <div class="control-button"></div>
+                <div class="control-button"></div>
+                <div class="control-button"></div>
             </div>
-        </a>
+        </div>
     </div>
 </div>
 
 <!-- Ensure Font Awesome is included -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
+
 <style>
-    .arrow-link {
-        position: relative;
-        display: inline-block;
-        text-decoration: none;
-    }
+    .arcade-container {
+    max-width: 800px;
+    margin: auto;
+}
 
-    .arrow-box {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 5rem;
-        height: 5rem;
-        background: linear-gradient(145deg, #333, #111);
-        border: 2px solid #ffd700;
-        border-radius: 50%;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(255, 255, 0, 0.6);
-        transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-        overflow: hidden;
-        position: relative;
-    }
+.tv-frame {
+    background: linear-gradient(145deg, #800000, #600000);
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6), 0 4px 20px rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
 
-    .arrow-box:hover {
-        background: linear-gradient(145deg, #444, #222);
-        transform: scale(1.1);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 255, 0, 0.8);
-    }
+.screen {
+    background: #1a1a1a;
+    border: 5px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
-    .arrow-box i {
-        font-size: 2rem;
-        color: #ffd700;
-        position: relative;
-        z-index: 2;
-    }
+.tv-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
 
-    .game-card {
-        overflow: hidden;
-        transition: transform 0.3s, box-shadow 0.3s;
-        border-radius: 15px;
-        background: linear-gradient(135deg, #111, #333);
-        border: 3px solid #ffd700;
-        position: relative;
-    }
+.control-button {
+    width: 20px;
+    height: 20px;
+    background-color: #444;
+    border-radius: 50%;
+    margin: 0 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
 
-    .game-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 0, 0.6);
-    }
+.control-button:hover {
+    background-color: #666;
+}
 
-    .game-link {
-        text-decoration: none;
-        color: inherit;
-    }
+.game-card {
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 10px;
+    background: #1a1a1a;
+    border: 2px solid #FFD700;
+}
 
-    .object-fit-cover {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 15px;
-        transition: transform 0.3s;
-    }
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
 
-    .game-link:hover .object-fit-cover {
-        transform: scale(1.05);
-    }
+.game-link {
+    text-decoration: none;
+    color: inherit;
+}
 
-    .card-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
+.object-fit-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
 
-    .game-link:hover .card-overlay {
-        opacity: 1;
-    }
+.game-link:hover .object-fit-cover {
+    transform: scale(1.05);
+}
 
-    .card-title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-        text-align: center;
-        margin: 0;
-        color: #ffd700;
-    }
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
 
-    .arrow-link {
-        text-decoration: none;
-    }
+.game-link:hover .card-overlay {
+    opacity: 1;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    margin: 0;
+    color: #ffd700;
+}
+
 </style>
