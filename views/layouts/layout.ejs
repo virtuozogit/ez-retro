@@ -23,6 +23,7 @@
             background-position: center; /* Center the image */
             background-attachment: fixed; /* Fix the image in place while scrolling */
             background-color: #121212; /* Dark fallback color for contrast */
+            overflow-x: hidden; /* Prevent horizontal scroll */
         } 
 
         .navbar {
@@ -51,6 +52,7 @@
             border-radius: 20px;
             border-width: 2px;
             font-family: 'Press Start 2P', cursive; /* Apply retro font */
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .btn-outline-warning:hover {
@@ -64,8 +66,8 @@
         }
 
         .btn-outline-blue {
-            border-color: hwb(211 27% 0%); /* Blue border color */
-            color: hwb(211 27% 0%); /* Blue text color */
+            border-color: #00f; /* Blue border color */
+            color: #00f; /* Blue text color */
         }
 
         .btn-outline-blue:hover {
@@ -128,6 +130,94 @@
             left: 0;
         }
 
+        /* Adding animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animated {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Styling the main section with retro elements */
+        .main-section {
+            padding: 50px 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin: 20px;
+            color: #ffc107;
+            backdrop-filter: blur(10px);
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 0px #000;
+            animation: bounceIn 1s ease-in-out;
+        }
+
+        .main-content {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            animation: slideInUp 1s ease-in-out;
+        }
+
+        /* Keyframes for more animations */
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Adding a retro grid pattern background */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, #333333 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Retro-style footer */
+        .footer {
+            background-color: #111;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .navbar-brand {
@@ -136,6 +226,14 @@
 
             .btn {
                 font-size: 0.8rem;
+            }
+
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                font-size: 1rem;
             }
 
             /* Mobile-specific adjustments for search form */
@@ -152,6 +250,8 @@
     </style>
 </head>
 <body>
+
+  <div class="grid-background"></div> <!-- Grid background pattern -->
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
@@ -200,8 +300,17 @@
     </div>
 </nav>
 
-<!-- Body -->
-<%- body %>
+<!-- Main Section -->
+<div class="main-section animated">
+    <h1 class="main-title">Welcome to EZRETRO</h1>
+    <p class="main-content">Experience the nostalgia of classic gaming with a modern twist. Discover, explore, and play your favorite retro games right here.</p>
+    <a href="#explore" class="btn btn-primary">Explore Now</a>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2024 EZRETRO. All rights reserved.</p>
+</footer>
 
 <!-- Bootstrap JS and dependencies -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
