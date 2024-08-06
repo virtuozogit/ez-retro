@@ -1,17 +1,7 @@
 <!-- Container for navigation arrows and game images -->
 <div class="container mt-5 position-relative">
-  <!-- Back Arrow -->
-  <a href="/prev" class="position-absolute top-50 start-0 translate-middle-y text-white" style="left: -4rem; z-index: 2; font-size: 3rem; padding: 1rem;">
-      <i class="fas fa-chevron-left"></i>
-  </a>
-
-  <!-- Forward Arrow -->
-  <a href="/next" class="position-absolute top-50 end-0 translate-middle-y text-white" style="right: -4rem; z-index: 2; font-size: 3rem; padding: 1rem;">
-      <i class="fas fa-chevron-right"></i>
-  </a>
-
-  <!-- Game Images -->
-  <div class="row overflow-auto d-flex" style="scroll-behavior: smooth;">
+  <!-- Game Images Container -->
+  <div class="row overflow-auto d-flex align-items-center">
       <% items.forEach(item => { %>
       <div class="col-md-4 mb-4">
           <div class="card text-bg-dark">
@@ -19,13 +9,21 @@
                   <div class="ratio" style="--bs-aspect-ratio: 115%;">
                       <img src="<%= item.image %>" class="object-fit-contain rounded" alt="...">
                   </div>
-                  <div class="card-img-overlay">
-                  </div>
+                  <div class="card-img-overlay"></div>
               </a>
           </div>
       </div>
       <% }) %>
   </div>
+
+  <!-- Navigation Arrows -->
+  <a href="/prev" class="position-absolute top-50 start-0 translate-middle-y text-white" style="left: -3rem; z-index: 2; font-size: 3rem; padding: 1rem;">
+      <i class="fas fa-chevron-left"></i>
+  </a>
+
+  <a href="/next" class="position-absolute top-50 end-0 translate-middle-y text-white" style="right: -3rem; z-index: 2; font-size: 3rem; padding: 1rem;">
+      <i class="fas fa-chevron-right"></i>
+  </a>
 </div>
 
 <!-- Ensure Font Awesome is included -->
