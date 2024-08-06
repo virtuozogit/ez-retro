@@ -1,21 +1,38 @@
-<!-- Container for game images -->
-<div class="container mt-5">
-    <!-- Game Images Container -->
-    <div class="row overflow-auto d-flex align-items-center flex-nowrap py-3">
-        <% items.forEach(item => { %>
-        <div class="col-md-4 mb-4 flex-shrink-0">
-            <div class="card game-card text-bg-dark shadow-lg">
-                <a href="/game/<%= item._id %>" class="game-link">
-                    <div class="ratio position-relative" style="--bs-aspect-ratio: 115%;">
-                        <img src="<%= item.image %>" class="object-fit-cover rounded" alt="Game Image">
-                        <div class="card-overlay d-flex align-items-center justify-content-center">
-                            <h5 class="text-light card-title"><%= item.title %></h5>
-                        </div>
-                    </div>
-                </a>
+<!-- Container for navigation arrows and game images -->
+<div class="container mt-5 position-relative">
+    <!-- Navigation Arrows Container -->
+    <div class="d-flex align-items-center justify-content-between">
+        <!-- Back Arrow -->
+        <a href="/prev" class="d-flex align-items-center justify-content-center arrow-link">
+            <div class="arrow-box rounded-circle shadow">
+                <i class="fas fa-chevron-left"></i>
             </div>
+        </a>
+
+        <!-- Game Images Container -->
+        <div class="row overflow-auto d-flex align-items-center flex-grow-1 py-3">
+            <% items.forEach(item => { %>
+            <div class="col-md-4 mb-4">
+                <div class="card game-card text-bg-dark shadow-lg">
+                    <a href="/game/<%= item._id %>" class="game-link">
+                        <div class="ratio position-relative" style="--bs-aspect-ratio: 115%;">
+                            <img src="<%= item.image %>" class="object-fit-cover rounded" alt="Game Image">
+                            <div class="card-overlay d-flex align-items-center justify-content-center">
+                                <h5 class="text-light card-title"><%= item.title %></h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <% }) %>
         </div>
-        <% }) %>
+
+        <!-- Forward Arrow -->
+        <a href="/next" class="d-flex align-items-center justify-content-center arrow-link">
+            <div class="arrow-box rounded-circle shadow">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </a>
     </div>
 </div>
 
@@ -23,6 +40,29 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
 <style>
+    .arrow-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+        width: 4rem;
+        height: 4rem;
+        background: rgba(139, 0, 0, 0.8);
+        transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .arrow-box:hover {
+        background: #661d15;
+        transform: scale(1.1);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .arrow-box i {
+        font-size: 2rem;
+        color: #FFD700 !important;
+    }
+
     .game-card {
         overflow: hidden;
         transition: transform 0.3s, box-shadow 0.3s;
@@ -69,13 +109,7 @@
         margin: 0;
     }
 
-    .row {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-    }
-
-    .col-md-4 {
-        flex: 0 0 auto;
-        width: auto;
+    .arrow-link {
+        text-decoration: none;
     }
 </style>
