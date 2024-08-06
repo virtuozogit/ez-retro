@@ -141,53 +141,50 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="/">
-        <!-- Logo Image -->
-        <img src="/assets/logo.png" alt="Logo" style="height: 60px; margin-right: 10px;">
-        <!-- Brand Text -->
-        <img src="/assets/name.png" alt="Logo" style="height: 60px; margin-right: 10px;">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <% if (req.isAuthenticated()) {%>
-              <a class="nav-link" href="/profile/<%= req.user._id %>">Status</a>
-            <% } %>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/plans">Subscribe</a>
-          </li>
-        </ul>
-
-
-          <!-- Search bar -->
-          <div class="col-md-8 ms-3">
-            <form class="d-flex" role="search" method="get" action="/">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="<%= req.query.searchTags %>" name="searchTags" style="width: 200px;"> <!-- Shorter width -->
-                <button class="btn btn-primary" type="submit" style="width: 100px;">Search</button> <!-- Shorter width -->
-            </form>
+        <a class="navbar-brand d-flex align-items-center" href="/">
+            <!-- Logo Image -->
+            <img src="/assets/logo.png" alt="Logo" style="height: 60px; margin-right: 10px;">
+            <!-- Brand Text -->
+            <img src="/assets/name.png" alt="Logo" style="height: 60px; margin-right: 10px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex w-100 justify-content-between align-items-center">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <% if (req.isAuthenticated()) {%>
+                            <a class="nav-link" href="/profile/<%= req.user._id %>">Status</a>
+                        <% } %>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/plans">Subscribe</a>
+                    </li>
+                </ul>
+                
+                <!-- Search bar and buttons container -->
+                <div class="d-flex align-items-center">
+                    <form class="d-flex me-3" role="search" method="get" action="/">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="<%= req.query.searchTags %>" name="searchTags" style="width: 200px;">
+                        <button class="btn btn-primary" type="submit" style="width: 100px;">Search</button>
+                    </form>
+                    <div>
+                        <% if (req.isAuthenticated()) {%>
+                            <a class="btn btn-outline-danger me-3" type="button" id="logoutBtn" href="/logout">Logout</a>
+                        <% } else { %>
+                            <a class="btn btn-outline-blue me-3" type="button" id="loginBtn" href="/login">Login</a>
+                            <a class="btn btn-outline-warning me-2" type="button" id="registerBtn" href="/register">Register</a>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="d-flex align-items-center">
-          <% if (req.isAuthenticated()) {%>
-            <a class="btn btn-outline-danger me-3" type="button" id="logoutBtn" href="/logout">Logout</a>
-          <% } else { %>
-            <a class="btn btn-outline-blue me-3" type="button" id="loginBtn" href="/login">Login</a>
-            <a class="btn btn-outline-warning me-2" type="button" id="registerBtn" href="/register">Register</a>
-          <% } %>
-
-         
-        
-        </div>
-      </div>
     </div>
-  </nav>
+</nav>
   
 <!-- Body -->
 <%- body %>
