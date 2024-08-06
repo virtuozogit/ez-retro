@@ -47,8 +47,11 @@
             const gameDescription = document.getElementById('game-description');
             const gameControls = document.getElementById('game-controls');
 
-            switch (EJS_gameName) {
-                case 'Super Mario Bros.':
+            // Normalize game name to handle variations
+            const normalizedGameName = EJS_gameName.toLowerCase();
+
+            switch (true) {
+                case normalizedGameName.includes('super mario bros'):
                     gameDescription.innerHTML = `
                         <strong>Objective:</strong> Rescue Princess Toadstool from the clutches of Bowser by navigating through various levels. 
                         <br><br>
@@ -66,7 +69,7 @@
                     `;
                     break;
 
-                case 'Sonic the Hedgehog':
+                case normalizedGameName.includes('sonic the hedgehog'):
                     gameDescription.innerHTML = `
                         <strong>Objective:</strong> Stop Dr. Robotnik's evil plans by collecting rings and defeating enemies through fast-paced levels.
                         <br><br>
@@ -84,7 +87,7 @@
                     `;
                     break;
 
-                case 'Sub-Terrania':
+                case normalizedGameName.includes('sub-terrania'):
                     gameDescription.innerHTML = `
                         <strong>Objective:</strong> Navigate through a hostile alien world and complete missions to save your comrades.
                         <br><br>
@@ -102,7 +105,7 @@
                     `;
                     break;
 
-                case "Kirby's Dream Land":
+                case normalizedGameName.includes('dream land'):
                     gameDescription.innerHTML = `
                         <strong>Objective:</strong> Guide Kirby to defeat King Dedede and restore the stolen food to Dream Land.
                         <br><br>
