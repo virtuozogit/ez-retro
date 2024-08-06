@@ -3,7 +3,7 @@
     <!-- Navigation Arrows Container -->
     <div class="d-flex align-items-center justify-content-between">
         <!-- Back Arrow -->
-        <a href="/prev" class="d-flex align-items-center justify-content-center arrow-link">
+        <a href="/prev" class="arrow-link position-relative">
             <div class="arrow-box rounded-circle shadow">
                 <i class="fas fa-chevron-left"></i>
             </div>
@@ -28,7 +28,7 @@
         </div>
 
         <!-- Forward Arrow -->
-        <a href="/next" class="d-flex align-items-center justify-content-center arrow-link">
+        <a href="/next" class="arrow-link position-relative">
             <div class="arrow-box rounded-circle shadow">
                 <i class="fas fa-chevron-right"></i>
             </div>
@@ -40,27 +40,56 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
 <style>
+    .arrow-link {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+    }
+
     .arrow-box {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 5px;
         width: 4rem;
         height: 4rem;
-        background: rgba(139, 0, 0, 0.8);
-        transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        background: radial-gradient(circle at 30% 30%, #8b0000, #4a0000);
+        border-radius: 50%;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        overflow: hidden;
+        position: relative;
     }
 
     .arrow-box:hover {
-        background: #661d15;
-        transform: scale(1.1);
+        background: radial-gradient(circle at 30% 30%, #661d15, #330000);
+        transform: translateY(-5px);
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
     }
 
     .arrow-box i {
         font-size: 2rem;
-        color: #FFD700 !important;
+        color: #FFD700;
+        position: relative;
+        z-index: 2;
+    }
+
+    .arrow-box:before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+        background-size: 50px 50px;
+        transform: rotate(45deg);
+        transition: opacity 0.3s, transform 0.3s;
+        opacity: 0;
+    }
+
+    .arrow-box:hover:before {
+        opacity: 0.5;
+        transform: rotate(90deg);
     }
 
     .game-card {
@@ -107,9 +136,5 @@
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
         text-align: center;
         margin: 0;
-    }
-
-    .arrow-link {
-        text-decoration: none;
     }
 </style>
