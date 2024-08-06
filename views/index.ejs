@@ -15,14 +15,19 @@
         .carousel-inner {
             display: flex;
             transition: transform 0.3s ease;
+            width: 400%; /* Adjust based on the number of items */
         }
         .carousel-item {
-            flex: 0 0 auto;
-            width: 33.333%; /* 100% divided by 3 items */
+            flex: 0 0 33.333%; /* Show 3 items at a time */
             padding: 20px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .carousel-item img {
             width: 100%;
+            max-height: 400px; /* Adjust as needed */
             border-radius: 10px;
             transition: transform 0.3s ease, filter 0.3s ease;
         }
@@ -31,7 +36,7 @@
             filter: brightness(1);
         }
         .carousel-item img:not(.active) {
-            filter: brightness(0.7); /* Darker images for the non-centered ones */
+            filter: brightness(0.7); /* Darker images for non-centered ones */
         }
         .carousel-control-prev, .carousel-control-next {
             position: absolute;
@@ -86,11 +91,16 @@
     let activeIndex = 1; // Start with the second item as active
 
     function updateCarousel() {
+        const totalItems = items.length;
+        const itemWidth = items[0].offsetWidth;
+        const offset = -activeIndex * itemWidth;
+
         items.forEach((item, index) => {
             item.classList.remove('active');
             item.style.transform = '';
         });
         items[activeIndex].classList.add('active');
+        document.querySelector('.carousel-inner').style.transform = `translateX(${offset}px)`;
     }
 
     prevButton.addEventListener('click', () => {
