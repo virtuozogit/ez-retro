@@ -1,4 +1,7 @@
-<!-- Container for navigation arrows and game images -->
+<!-- Ensure Font Awesome is included -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+<!-- Main Container for Navigation Arrows and Game Images -->
 <div class="container mt-5 position-relative">
     <!-- Navigation Arrows Container -->
     <div class="d-flex align-items-center justify-content-between">
@@ -36,80 +39,115 @@
     </div>
 </div>
 
+<!-- Bottom Image Container -->
+<div class="bottom-image-container">
+    <img src="path/to/charpic.png" alt="Character Image" class="bottom-image">
+</div>
+
+
 <!-- Ensure Font Awesome is included -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
 <style>
-    .arrow-box {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 5px;
-        width: 4rem;
-        height: 4rem;
-        background: rgba(139, 0, 0, 0.8);
-        transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
+    /* Arrow Box Styling */
+.arrow-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    width: 4rem;
+    height: 4rem;
+    background: rgba(139, 0, 0, 0.8);
+    transition: background 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 
-    .arrow-box:hover {
-        background: #661d15;
-        transform: scale(1.1);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    }
+.arrow-box:hover {
+    background: #661d15;
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
 
-    .arrow-box i {
-        font-size: 2rem;
-        color: #FFD700 !important;
-    }
+.arrow-box i {
+    font-size: 2rem;
+    color: #FFD700 !important;
+}
 
-    .game-card {
-        overflow: hidden;
-        transition: transform 0.3s, box-shadow 0.3s;
-        border-radius: 10px;
-    }
+/* Game Card Styling */
+.game-card {
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    border-radius: 10px;
+}
 
-    .game-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
+.game-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
 
-    .game-link {
-        text-decoration: none;
-    }
+.game-link {
+    text-decoration: none;
+}
 
-    .object-fit-cover {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 10px;
-        transition: opacity 0.3s;
-    }
+.object-fit-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: opacity 0.3s;
+}
 
-    .card-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
 
-    .game-link:hover .card-overlay {
-        opacity: 1;
-    }
+.game-link:hover .card-overlay {
+    opacity: 1;
+}
 
-    .card-title {
-        font-size: 1.25rem;
-        font-weight: 600;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-        text-align: center;
-        margin: 0;
-    }
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    margin: 0;
+}
 
-    .arrow-link {
-        text-decoration: none;
-    }
+.arrow-link {
+    text-decoration: none;
+}
+
+/* Bottom Image Styling */
+.bottom-image-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.bottom-image {
+    max-width: 150px;
+    height: auto;
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.bottom-image:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
 </style>
