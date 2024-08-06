@@ -163,18 +163,11 @@
             <a class="btn btn-outline-warning me-2" type="button" id="registerBtn" href="/register">Register</a>
             <a class="btn btn-outline-success me-3" type="button" id="loginBtn" href="/login">Login</a>
           <% } %>
-  
-          <!-- Animated Search Bar -->
-          <div class="search-container" id="searchContainer">
-            <img src="/assets/search-icon.png" alt="Search" class="search-icon" id="searchIcon">
-            <input type="text" class="search-input" id="searchInput" placeholder="Search..." aria-label="Search" value="<%= req.query.searchTags %>" name="searchTags">
-            <img src="/assets/close-icon.png" alt="Close" class="close-icon" id="closeIcon">
-          </div>
         </div>
       </div>
     </div>
   </nav>
-  
+
 <!-- Body -->
 <%- body %>
 
