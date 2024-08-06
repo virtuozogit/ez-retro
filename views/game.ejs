@@ -1,7 +1,16 @@
-<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+<div class="container d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
+    <!-- Game Name Heading -->
+    <h1 class="game-title text-center mb-4" style="color: #fff; font-family: 'Press Start 2P', cursive;">
+        <!-- Print the game name from the server-side EJS variable -->
+        <%= game.name %>
+    </h1>
+    
+    <!-- Game Display Container -->
     <div style="width:1080px;height:720px;max-width:100%">
         <div id="game"></div>
     </div>
+    
+    <!-- Emulator Script -->
     <script>
         EJS_player = "#game";
 
