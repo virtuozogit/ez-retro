@@ -1,30 +1,59 @@
 <!-- Container for navigation arrows and game images -->
 <div class="container mt-5 position-relative">
-  <!-- Game Images Container -->
-  <div class="row overflow-auto d-flex align-items-center">
-      <% items.forEach(item => { %>
-      <div class="col-md-4 mb-4">
-          <div class="card text-bg-dark">
-              <a href="/game/<%= item._id %>">
-                  <div class="ratio" style="--bs-aspect-ratio: 115%;">
-                      <img src="<%= item.image %>" class="object-fit-contain rounded" alt="...">
-                  </div>
-                  <div class="card-img-overlay"></div>
-              </a>
+  <!-- Navigation Arrows Container -->
+  <div class="position-absolute d-flex align-items-center" style="width: 100%; top: 50%; transform: translateY(-50%);">
+      <!-- Back Arrow -->
+      <a href="/prev" class="d-flex align-items-center justify-content-center position-relative" style="flex: 1; z-index: 2;">
+          <div class="arrow-box rounded-circle">
+              <i class="fas fa-chevron-left" style="font-size: 2rem; color: #fff;"></i>
           </div>
+      </a>
+
+      <!-- Game Images Container -->
+      <div class="row overflow-auto d-flex align-items-center" style="flex: 8;">
+          <% items.forEach(item => { %>
+          <div class="col-md-4 mb-4">
+              <div class="card text-bg-dark">
+                  <a href="/game/<%= item._id %>">
+                      <div class="ratio" style="--bs-aspect-ratio: 115%;">
+                          <img src="<%= item.image %>" class="object-fit-contain rounded" alt="...">
+                      </div>
+                      <div class="card-img-overlay"></div>
+                  </a>
+              </div>
+          </div>
+          <% }) %>
       </div>
-      <% }) %>
+
+      <!-- Forward Arrow -->
+      <a href="/next" class="d-flex align-items-center justify-content-center position-relative" style="flex: 1; z-index: 2;">
+          <div class="arrow-box rounded-circle">
+              <i class="fas fa-chevron-right" style="font-size: 2rem; color: #fff;"></i>
+          </div>
+      </a>
   </div>
-
-  <!-- Navigation Arrows -->
-  <a href="/prev" class="position-absolute top-50 start-0 translate-middle-y text-white" style="left: -3rem; z-index: 2; font-size: 3rem; padding: 1rem;">
-      <i class="fas fa-chevron-left"></i>
-  </a>
-
-  <a href="/next" class="position-absolute top-50 end-0 translate-middle-y text-white" style="right: -3rem; z-index: 2; font-size: 3rem; padding: 1rem;">
-      <i class="fas fa-chevron-right"></i>
-  </a>
 </div>
 
 <!-- Ensure Font Awesome is included -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+<style>
+.arrow-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem; /* Adjust size as needed */
+  height: 4rem; /* Adjust size as needed */
+  background: rgba(0, 0, 0, 0.7);
+  transition: background 0.3s; /* Smooth transition */
+}
+
+.arrow-box:hover {
+  background: rgba(0, 0, 0, 0.9); /* Darken the background on hover */
+}
+
+.arrow-box i {
+  font-size: 2rem; /* Adjust icon size as needed */
+  color: #fff;
+}
+</style>
