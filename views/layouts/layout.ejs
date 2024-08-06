@@ -12,15 +12,15 @@
 
     <!-- Custom CSS -->
     <style>
-         body {
-        font-family: 'Press Start 2P', cursive; /* Retro-style font for a gaming vibe */
-        color: #e0e0e0; /* Light text color for readability */
-        background-image: url('/assets/background.png'); /* Path to your background image */
-        background-size: cover; /* Ensure the image covers the entire background */
-        background-position: center; /* Center the image */
-        background-attachment: fixed; /* Fix the image in place while scrolling */
-        background-color: #121212; /* Dark fallback color for contrast */
-      } 
+        body {
+            font-family: 'Press Start 2P', cursive; /* Retro-style font for a gaming vibe */
+            color: #e0e0e0; /* Light text color for readability */
+            background-image: url('/assets/background.png'); /* Path to your background image */
+            background-size: cover; /* Ensure the image covers the entire background */
+            background-position: center; /* Center the image */
+            background-attachment: fixed; /* Fix the image in place while scrolling */
+            background-color: #121212; /* Dark fallback color for contrast */
+        } 
 
         .navbar {
             background-image: linear-gradient(45deg, #0d6efd, #6610f2);
@@ -44,7 +44,7 @@
             color: #ffc107 !important; /* Highlight link on hover */
         }
 
-        .btn-outline-warning, .btn-outline-success, .btn-outline-danger {
+        .btn-outline-warning, .btn-outline-danger {
             border-radius: 20px;
             border-width: 2px;
             font-family: 'Press Start 2P', cursive; /* Apply retro font */
@@ -55,14 +55,20 @@
             color: #000;
         }
 
-        .btn-outline-success:hover {
-            background-color: #28a745;
-            color: #fff;
-        }
-
         .btn-outline-danger:hover {
             background-color: #dc3545;
             color: #fff;
+        }
+
+        .btn-blue {
+            background-color: #007bff; /* Bootstrap primary blue color */
+            border: 1px solid #007bff; /* Matching border color */
+            color: #fff; /* White text color */
+        }
+
+        .btn-blue:hover {
+            background-color: #0056b3; /* Darker blue for hover effect */
+            border-color: #0056b3; /* Matching border color for hover effect */
         }
 
         .form-control {
@@ -160,17 +166,18 @@
           <% if (req.isAuthenticated()) {%>
             <a class="btn btn-outline-danger me-3" type="button" id="logoutBtn" href="/logout">Logout</a>
           <% } else { %>
+            <a class="btn btn-blue me-3" type="button" id="loginBtn" href="/login">Login</a>
             <a class="btn btn-outline-warning me-2" type="button" id="registerBtn" href="/register">Register</a>
-            <a class="btn btn-outline-success me-3" type="button" id="loginBtn" href="/login">Login</a>
           <% } %>
-  
+
            <!-- Search bar -->
            <div class="col-md-8 ms-3">
             <form class="d-flex" role="search" method="get" action="/">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="<%= req.query.searchTags %>" name="searchTags">
-                <button class="btn btn-primary" type="submit">Search</button>
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="<%= req.query.searchTags %>" name="searchTags" style="width: 200px;"> <!-- Shorter width -->
+                <button class="btn btn-primary" type="submit" style="width: 100px;">Search</button> <!-- Shorter width -->
             </form>
-          </div>
+        </div>
+        
         </div>
       </div>
     </div>
