@@ -1,5 +1,5 @@
-<div class="container-fluid" style="height: 100vh; overflow: hidden; position: relative;" id="game-container">
-    <div class="row h-100 align-items-center" style="z-index: 1; position: relative;">
+<div class="container" style="height: 100vh;">
+    <div class="row h-100 align-items-center">
         <!-- Game Display Container (Left Side) -->
         <div class="col-md-7">
             <div style="width:100%; height:auto; aspect-ratio:3/2; max-width: 100%">
@@ -42,11 +42,10 @@
         // Game URL
         EJS_gameUrl = "<%= game.gameUrl %>";
 
-        // JavaScript to Fill Game Details and Change Background
+        // JavaScript to Fill Game Details
         window.onload = function() {
             const gameDescription = document.getElementById('game-description');
             const gameControls = document.getElementById('game-controls');
-            const gameContainer = document.getElementById('game-container');
 
             switch (EJS_gameName) {
                 case 'Super Mario Bros.':
@@ -65,11 +64,9 @@
                             <li><kbd>Shift</kbd>: Run</li>
                         </ul>
                     `;
-
-                    gameContainer.style.backgroundImage = "url('mariobg.jpg')";
                     break;
 
-                case 'Sonic The Hedgehog':
+                case 'Sonic the Hedgehog':
                     gameDescription.innerHTML = `
                         <strong>Objective:</strong> Stop Dr. Robotnik's evil plans by collecting rings and defeating enemies through fast-paced levels.
                         <br><br>
@@ -85,8 +82,6 @@
                             <li><kbd>A</kbd>: Spin Dash</li>
                         </ul>
                     `;
-
-                    gameContainer.style.backgroundImage = "url('sonicbg.jpg')";
                     break;
 
                 case 'Sub-Terrania':
@@ -105,8 +100,6 @@
                             <li><kbd>Z</kbd>: Thrust</li>
                         </ul>
                     `;
-
-                    gameContainer.style.backgroundImage = "url('subbg.png')";
                     break;
 
                 case "Kirby's Dream Land":
@@ -126,8 +119,6 @@
                             <li><kbd>S</kbd>: Exhale</li>
                         </ul>
                     `;
-
-                    gameContainer.style.backgroundImage = "url('kirbybg.png')";
                     break;
 
                 default:
@@ -137,14 +128,8 @@
                     gameControls.innerHTML = `
                         <strong>Controls:</strong> No controls available for this game.
                     `;
-                    gameContainer.style.backgroundImage = "none";
                     break;
             }
-
-            // Styling for the background image
-            gameContainer.style.backgroundSize = "cover";
-            gameContainer.style.backgroundPosition = "center";
-            gameContainer.style.backgroundRepeat = "no-repeat";
         };
     </script>
 
