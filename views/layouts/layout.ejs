@@ -13,189 +13,195 @@
     <!-- Importing Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <!-- Custom CSS -->
     <style>
         body {
-    font-family: 'Press Start 2P', cursive; /* Retro-style font for a gaming vibe */
-    color: #e0e0e0; /* Light text color for readability */
-    background-image: url('/assets/background.png'); /* Path to your background image */
-    background-size: cover; /* Ensure the image covers the entire background */
-    background-position: center; /* Center the image */
-    background-attachment: fixed; /* Fix the image in place while scrolling */
-    background-color: #121212; /* Dark fallback color for contrast */
-}
+            font-family: 'Press Start 2P', cursive; /* Retro-style font for a gaming vibe */
+            color: #e0e0e0; /* Light text color for readability */
+            background-image: url('/assets/background.png'); /* Path to your background image */
+            background-size: cover; /* Ensure the image covers the entire background */
+            background-position: center; /* Center the image */
+            background-attachment: fixed; /* Fix the image in place while scrolling */
+            background-color: #121212; /* Dark fallback color for contrast */
+        } 
 
-/* Navbar styles */
-.navbar {
-    background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(5px); /* Blur effect */
-    padding: 10px 0; /* Padding for navbar */
-}
+        /* Navbar styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: rgba(31, 40, 51, 0.9); /* Semi-transparent background */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px); /* Blur effect */
+        }
 
-.navbar-brand {
-    font-size: 2rem;
-    letter-spacing: 2px;
-    color: #66fcf1 !important; /* Neon blue color */
-    font-family: 'Press Start 2P', cursive; /* Apply retro font */
-    text-shadow: 0 0 5px #66fcf1, 0 0 10px #66fcf1, 0 0 20px #66fcf1;
-    animation: text-glow 1.5s ease-in-out infinite;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-left: 20px; /* Adjusted margin */
+        }
 
-.nav-link {
-    color: #f8f9fa !important;
-    transition: color 0.3s ease;
-    font-family: 'Press Start 2P', cursive; /* Apply retro font */
-}
+        .logo img {
+            height: 50px;
+            animation: float 2s infinite alternate;
+        }
 
-.nav-link:hover {
-    color: #ffc107 !important; /* Highlight link on hover */
-}
+        .logo h1 {
+            font-size: 26px;
+            color: #66fcf1;
+            margin-left: 10px;
+            animation: text-glow 1.5s ease-in-out infinite;
+            text-shadow: 0 0 5px #66fcf1, 0 0 10px #66fcf1, 0 0 20px #66fcf1;
+        }
 
-.btn-outline-warning, .btn-outline-danger, .btn-outline-blue {
-    border-radius: 20px;
-    border-width: 2px;
-    font-family: 'Press Start 2P', cursive; /* Apply retro font */
-}
+        .nav-link {
+            color: #f8f9fa !important;
+            transition: color 0.3s ease;
+            font-family: 'Press Start 2P', cursive; /* Apply retro font */
+        }
 
-.btn-outline-warning:hover {
-    background-color: #ffc107;
-    color: #000;
-}
+        .nav-link:hover {
+            color: #ffc107 !important; /* Highlight link on hover */
+        }
 
-.btn-outline-danger:hover {
-    background-color: #d34a24;
-    color: #fff;
-}
+        .btn-outline-warning, .btn-outline-danger, .btn-outline-blue {
+            border-radius: 20px;
+            border-width: 2px;
+            font-family: 'Press Start 2P', cursive; /* Apply retro font */
+        }
 
-.btn-outline-blue {
-    border-color: hwb(211 27% 0%); /* Blue border color */
-    color: hwb(211 27% 0%); /* Blue text color */
-}
+        .btn-outline-warning:hover {
+            background-color: #ffc107;
+            color: #000;
+        }
 
-.btn-outline-blue:hover {
-    background-color: #007bff; /* Blue background on hover */
-    color: #fff; /* White text on hover */
-}
+        .btn-outline-danger:hover {
+            background-color: #d34a24;
+            color: #fff;
+        }
 
-.form-control {
-    border-radius: 30px;
-    background-color: #343a40;
-    color: #fff;
-    border: 1px solid #495057;
-    transition: border-color 0.3s ease;
-    font-family: 'Press Start 2P', cursive; /* Apply retro font */
-}
+        .btn-outline-blue {
+            border-color: #00bfff; /* Blue border color */
+            color: #00bfff; /* Blue text color */
+        }
 
-.form-control:focus {
-    border-color: #0d6efd;
-    box-shadow: none;
-}
+        .btn-outline-blue:hover {
+            background-color: #007bff; /* Blue background on hover */
+            color: #fff; /* White text on hover */
+        }
 
-.btn-primary {
-    border-radius: 20px;
-    background-image: linear-gradient(45deg, #6610f2, #0d6efd);
-    border: none;
-    font-family: 'Press Start 2P', cursive; /* Apply retro font */
-    width: 150px; /* Adjust button width */
-    font-size: 12px; /* Adjust font size to fit text */
-    padding: 8px 15px; /* Ensure padding accommodates text */
-}
+        .form-control {
+            border-radius: 30px;
+            background-color: #343a40;
+            color: #fff;
+            border: 1px solid #495057;
+            transition: border-color 0.3s ease;
+            font-family: 'Press Start 2P', cursive; /* Apply retro font */
+        }
 
-.btn-primary:hover {
-    background-image: linear-gradient(45deg, #0d6efd, #6610f2);
-    color: #fff;
-}
+        .form-control:focus {
+            border-color: #0d6efd;
+            box-shadow: none;
+        }
 
-/* Retro hover animation for navbar links */
-.nav-link {
-    position: relative;
-    overflow: hidden;
-}
+        .btn-primary {
+            border-radius: 20px;
+            background-image: linear-gradient(45deg, #6610f2, #0d6efd);
+            border: none;
+            font-family: 'Press Start 2P', cursive; /* Apply retro font */
+            width: 150px; /* Adjust button width */
+            font-size: 12px; /* Adjust font size to fit text */
+            padding: 8px 15px; /* Ensure padding accommodates text */
+        }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #ffc107;
-    bottom: 0;
-    left: -100%;
-    transition: left 0.3s ease;
-}
+        .btn-primary:hover {
+            background-image: linear-gradient(45deg, #0d6efd, #6610f2);
+            color: #fff;
+        }
 
-.nav-link:hover::after {
-    left: 0;
-}
+        /* Retro hover animation for navbar links */
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .navbar-brand {
-        font-size: 1.2rem;
-    }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #ffc107;
+            bottom: 0;
+            left: -100%;
+            transition: left 0.3s ease;
+        }
 
-    .btn {
-        font-size: 0.8rem;
-    }
+        .nav-link:hover::after {
+            left: 0;
+        }
 
-    /* Mobile-specific adjustments for search form */
-    .form-control {
-        width: 200px; /* Smaller width on mobile */
-        font-size: 10px; /* Smaller font size on mobile */
-    }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
 
-    .btn-primary {
-        width: 100px; /* Adjust button width on mobile */
-        font-size: 10px; /* Adjust font size on mobile */
-    }
-}
+            .btn {
+                font-size: 0.8rem;
+            }
 
-/* Text glow animation */
-@keyframes text-glow {
-    0% {
-        text-shadow: 0 0 5px #66fcf1, 0 0 10px #66fcf1, 0 0 20px #66fcf1;
-    }
-    50% {
-        text-shadow: 0 0 20px #66fcf1, 0 0 30px #66fcf1, 0 0 40px #66fcf1;
-    }
-    100% {
-        text-shadow: 0 0 5px #66fcf1, 0 0 10px #66fcf1, 0 0 20px #66fcf1;
-    }
-}
+            /* Mobile-specific adjustments for search form */
+            .form-control {
+                width: 200px; /* Smaller width on mobile */
+                font-size: 10px; /* Smaller font size on mobile */
+            }
 
+            .btn-primary {
+                width: 100px; /* Adjust button width on mobile */
+                font-size: 10px; /* Adjust font size on mobile */
+            }
+        }
+
+        /* Text glow animation */
+        @keyframes text-glow {
+            0% {
+                text-shadow: 0 0 5px #66fcf1, 0 0 10px #66fcf1, 0 0 20px #66fcf1;
+            }
+            50% {
+                text-shadow: 0 0 20px #66fcf1, 0 0 30px #66fcf1, 0 0 40px #66fcf1;
+            }
+            100% {
+                text-shadow: 0 0 5px #66fcf1, 0 0 10px #66fcf1, 0 0 20px #66fcf1;
+            }
+        }
     </style>
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-        <a class="navbar-brand d-flex align-items-center justify-content-center" href="/">
-            <!-- Logo Image -->
-            <img src="/assets/logo.png" alt="Logo" style="height: 50px; margin-right: 10px;">
-            <!-- Brand Text -->
-            EZRetro
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="d-flex w-100 justify-content-between align-items-center">
+<header>
+    <div class="logo">
+        <img src="/assets/logo.png" alt="Logo">
+        <h1>EZRetro</h1>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <% if (req.isAuthenticated()) {%>
+                        <% if (req.isAuthenticated()) { %>
                             <a class="nav-link" href="/profile/<%= req.user._id %>">Status</a>
                         <% } %>
                     </li>
@@ -211,7 +217,7 @@
                         <button class="btn btn-primary" type="submit">Search</button> <!-- Adjusted button size -->
                     </form>
                     <div class="d-flex">
-                        <% if (req.isAuthenticated()) {%>
+                        <% if (req.isAuthenticated()) { %>
                             <a class="btn btn-outline-danger me-3" type="button" id="logoutBtn" href="/logout">Logout</a>
                         <% } else { %>
                             <a class="btn btn-outline-blue me-3" type="button" id="loginBtn" href="/login">Login</a>
@@ -221,8 +227,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
 <!-- Body -->
 <%- body %>
