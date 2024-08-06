@@ -1,16 +1,16 @@
 <!-- Container for navigation arrows and game images -->
 <div class="container mt-5 position-relative">
   <!-- Navigation Arrows Container -->
-  <div class="position-absolute d-flex align-items-center" style="width: 100%; top: 50%; transform: translateY(-50%);">
+  <div class="d-flex align-items-center">
       <!-- Back Arrow -->
-      <a href="/prev" class="d-flex align-items-center justify-content-center position-relative" style="flex: 1; z-index: 2;">
-          <div class="arrow-box rounded-circle">
-              <i class="fas fa-chevron-left" style="font-size: 2rem; color: #fff;"></i>
+      <a href="/prev" class="d-flex align-items-center justify-content-center">
+          <div class="arrow-box rounded-circle me-3">
+              <i class="fas fa-chevron-left"></i>
           </div>
       </a>
 
       <!-- Game Images Container -->
-      <div class="row overflow-auto d-flex align-items-center" style="flex: 8;">
+      <div class="row overflow-auto d-flex align-items-center flex-grow-1">
           <% items.forEach(item => { %>
           <div class="col-md-4 mb-4">
               <div class="card text-bg-dark">
@@ -26,9 +26,9 @@
       </div>
 
       <!-- Forward Arrow -->
-      <a href="/next" class="d-flex align-items-center justify-content-center position-relative" style="flex: 1; z-index: 2;">
-          <div class="arrow-box rounded-circle">
-              <i class="fas fa-chevron-right" style="font-size: 2rem; color: #fff;"></i>
+      <a href="/next" class="d-flex align-items-center justify-content-center">
+          <div class="arrow-box rounded-circle ms-3">
+              <i class="fas fa-chevron-right"></i>
           </div>
       </a>
   </div>
