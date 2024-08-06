@@ -1,10 +1,10 @@
 <!-- Container for navigation arrows and game images -->
 <div class="container mt-5 position-relative">
   <!-- Navigation Arrows Container -->
-  <div class="d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
       <!-- Back Arrow -->
       <a href="/prev" class="d-flex align-items-center justify-content-center">
-          <div class="arrow-box rounded-circle me-3">
+          <div class="arrow-box rounded-circle">
               <i class="fas fa-chevron-left"></i>
           </div>
       </a>
@@ -27,7 +27,7 @@
 
       <!-- Forward Arrow -->
       <a href="/next" class="d-flex align-items-center justify-content-center">
-          <div class="arrow-box rounded-circle ms-3">
+          <div class="arrow-box rounded-circle">
               <i class="fas fa-chevron-right"></i>
           </div>
       </a>
@@ -44,16 +44,16 @@
   justify-content: center;
   width: 4rem; /* Adjust size as needed */
   height: 4rem; /* Adjust size as needed */
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(139, 0, 0, 0.7); /* Dark red background */
   transition: background 0.3s; /* Smooth transition */
 }
 
 .arrow-box:hover {
-  background: rgba(0, 0, 0, 0.9); /* Darken the background on hover */
+  background: rgba(139, 0, 0, 0.9); /* Darken the background on hover */
 }
 
 .arrow-box i {
   font-size: 2rem; /* Adjust icon size as needed */
-  color: #fff;
+  color: #FFD700; /* Mustard yellow color */
 }
 </style>
