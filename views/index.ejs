@@ -1,33 +1,32 @@
+<!-- Container for game images and navigation arrows -->
 <div class="container mt-5">
-    <div class="row">
+  <div class="row position-relative">
+      <!-- Back Arrow -->
+      <a href="/prev" class="position-absolute top-50 start-0 translate-middle-y text-white fs-3" style="left: 0; z-index: 2;">
+          <i class="fas fa-chevron-left"></i>
+      </a>
+
+      <!-- Game Images -->
       <% items.forEach(item => { %>
-        <div class="col-md-4 mb-4">
+      <div class="col-md-4 mb-4">
           <div class="card text-bg-dark">
               <a href="/game/<%= item._id %>">
-                <div class="ratio" style="--bs-aspect-ratio: 115%;">
-                  <img src="<%= item.image %>" class="object-fit-contain rounded" alt="...">
-                </div>
-                <div class="card-img-overlay">
-                </div>
+                  <div class="ratio" style="--bs-aspect-ratio: 115%;">
+                      <img src="<%= item.image %>" class="object-fit-contain rounded" alt="...">
+                  </div>
+                  <div class="card-img-overlay">
+                  </div>
               </a>
-            </div>
-        </div>
+          </div>
+      </div>
       <% }) %>
-    </div>
+
+      <!-- Forward Arrow -->
+      <a href="/next" class="position-absolute top-50 end-0 translate-middle-y text-white fs-3" style="right: 0; z-index: 2;">
+          <i class="fas fa-chevron-right"></i>
+      </a>
+  </div>
 </div>
 
-
-<!-- Pagination Buttons -->
-<div class="container">
-  <p></p>
-  <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-      <li class="page-item">
-        <a class="page-link" href="/prev">Previous</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="/next">Next</a>
-      </li>
-    </ul>
-  </nav>
-</div>
+<!-- Ensure Font Awesome is included -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
