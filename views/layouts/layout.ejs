@@ -26,39 +26,27 @@
         } 
 
         /* Navbar styles */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background-color: rgba(31, 40, 51, 0.9); /* Semi-transparent background */
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-            width: 100%;
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             position: fixed;
+            width: 100%;
             top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
+            z-index: 1000;
             backdrop-filter: blur(5px); /* Blur effect */
+            padding: 10px 0; /* Padding for navbar */
         }
 
-        .logo {
+        .navbar-brand {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: #66fcf1 !important; /* Neon blue color */
+            font-family: 'Press Start 2P', cursive; /* Apply retro font */
+            text-shadow: 0 0 5px #66fcf1, 0 0 10px #66fcf1, 0 0 20px #66fcf1;
             display: flex;
             align-items: center;
-            margin-left: 20px; /* Adjusted margin */
-        }
-
-        .logo img {
-            height: 50px;
-            animation: float 2s infinite alternate;
-        }
-
-        .logo h1 {
-            font-size: 26px;
-            color: #66fcf1;
-            margin-left: 10px;
-            animation: text-glow 1.5s ease-in-out infinite;
-            text-shadow: 0 0 5px #66fcf1, 0 0 10px #66fcf1, 0 0 20px #66fcf1;
+            justify-content: center;
+            width: 100%;
         }
 
         .nav-link {
@@ -88,8 +76,8 @@
         }
 
         .btn-outline-blue {
-            border-color: #00bfff; /* Blue border color */
-            color: #00bfff; /* Blue text color */
+            border-color: hwb(211 27% 0%); /* Blue border color */
+            color: hwb(211 27% 0%); /* Blue text color */
         }
 
         .btn-outline-blue:hover {
@@ -168,41 +156,29 @@
                 font-size: 10px; /* Adjust font size on mobile */
             }
         }
-
-        /* Text glow animation */
-        @keyframes text-glow {
-            0% {
-                text-shadow: 0 0 5px #66fcf1, 0 0 10px #66fcf1, 0 0 20px #66fcf1;
-            }
-            50% {
-                text-shadow: 0 0 20px #66fcf1, 0 0 30px #66fcf1, 0 0 40px #66fcf1;
-            }
-            100% {
-                text-shadow: 0 0 5px #66fcf1, 0 0 10px #66fcf1, 0 0 20px #66fcf1;
-            }
-        }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo">
-        <img src="/assets/logo.png" alt="Logo">
-        <h1>EZRetro</h1>
-    </div>
-</header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center justify-content-center" href="/">
+            <!-- Logo Image -->
+            <img src="/assets/logo.png" alt="Logo" style="height: 50px; margin-right: 10px;">
+            <!-- Brand Text -->
+            EZRetro
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex w-100 justify-content-between align-items-center">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <% if (req.isAuthenticated()) { %>
+                        <% if (req.isAuthenticated()) {%>
                             <a class="nav-link" href="/profile/<%= req.user._id %>">Status</a>
                         <% } %>
                     </li>
@@ -218,7 +194,7 @@
                         <button class="btn btn-primary" type="submit">Search</button> <!-- Adjusted button size -->
                     </form>
                     <div class="d-flex">
-                        <% if (req.isAuthenticated()) { %>
+                        <% if (req.isAuthenticated()) {%>
                             <a class="btn btn-outline-danger me-3" type="button" id="logoutBtn" href="/logout">Logout</a>
                         <% } else { %>
                             <a class="btn btn-outline-blue me-3" type="button" id="loginBtn" href="/login">Login</a>
@@ -228,7 +204,8 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
 <!-- Body -->
 <%- body %>
