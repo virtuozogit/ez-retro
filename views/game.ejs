@@ -24,15 +24,10 @@
                 <div id="game-controls" style="font-size: 14px;">
                     <!-- Controls will be filled in by JavaScript -->
                 </div>
-            </div>
 
-            <!-- Game Short Description and Image -->
-            <div class="game-info-short mt-4" style="background-color: rgba(0, 0, 0, 0.8); border-radius: 10px; padding: 10px; color: #fff; font-family: 'Press Start 2P', cursive;">
-                <div id="game-short-description" style="font-size: 12px;">
-                    <!-- Short description will be filled in by JavaScript -->
-                </div>
-                <div class="mt-3">
-                    <img id="game-image" src="" alt="Game Image" style="width: 100%; border-radius: 10px;">
+                <!-- Short Game Description -->
+                <div id="game-info" class="mt-4" style="font-size: 12px;">
+                    <!-- Description will be filled in by JavaScript -->
                 </div>
             </div>
         </div>
@@ -56,112 +51,126 @@
         window.onload = function() {
             const gameDescription = document.getElementById('game-description');
             const gameControls = document.getElementById('game-controls');
-            const gameShortDescription = document.getElementById('game-short-description');
-            const gameImage = document.getElementById('game-image');
+            const gameInfo = document.getElementById('game-info');
 
             // Normalize game name to handle variations
             const normalizedGameName = EJS_gameName.toLowerCase();
 
-            // Define game details
-            const gameDetails = {
-                'super mario bros': {
-                    description: `
-                        <strong>Developer:</strong> Nintendo <br>
-                        <strong>Consoles:</strong> NES <br>
-                        <strong>History:</strong> Released in 1985, it is a classic platformer that popularized the genre.
-                    `,
-                    image: 'path/to/super-mario-bros-image.jpg' // Replace with actual image path
-                },
-                'sonic the hedgehog': {
-                    description: `
-                        <strong>Developer:</strong> Sega <br>
-                        <strong>Consoles:</strong> Sega Genesis <br>
-                        <strong>History:</strong> Released in 1991, it introduced Sonic as Sega's mascot and was known for its speed-based gameplay.
-                    `,
-                    image: 'path/to/sonic-the-hedgehog-image.jpg' // Replace with actual image path
-                },
-                'sub-terrania': {
-                    description: `
-                        <strong>Developer:</strong> Zyrinx <br>
-                        <strong>Consoles:</strong> Sega Genesis <br>
-                        <strong>History:</strong> Released in 1993, it's known for its unique 2D shooter gameplay and sci-fi setting.
-                    `,
-                    image: 'path/to/sub-terrania-image.jpg' // Replace with actual image path
-                },
-                'dream land': {
-                    description: `
-                        <strong>Developer:</strong> HAL Laboratory <br>
-                        <strong>Consoles:</strong> Game Boy <br>
-                        <strong>History:</strong> Released in 1992, it features Kirby's debut and is celebrated for its charm and innovative gameplay.
-                    `,
-                    image: 'path/to/dream-land-image.jpg' // Replace with actual image path
-                }
-            };
+            switch (true) {
+                case normalizedGameName.includes('super mario bros'):
+                    gameDescription.innerHTML = `
+                        <strong>Objective:</strong> Rescue Princess Toadstool from the clutches of Bowser by navigating through various levels. 
+                        <br><br>
+                        <strong>World:</strong> Mushroom Kingdom <br>
+                        <strong>Enemy:</strong> Bowser
+                    `;
 
-            if (gameDetails[normalizedGameName]) {
-                gameDescription.innerHTML = `
-                    <strong>Objective:</strong> ${gameDetails[normalizedGameName].description}
-                `;
+                    gameControls.innerHTML = `
+                        <strong>Controls:</strong><br>
+                        <ul>
+                            <li><kbd>Arrow Keys</kbd>: Move</li>
+                            <li><kbd>Space</kbd>: Jump</li>
+                            <li><kbd>Shift</kbd>: Run</li>
+                        </ul>
+                    `;
 
-                gameControls.innerHTML = `
-                    <strong>Controls:</strong><br>
-                    <ul>
-                        <!-- Controls as defined previously -->
-                    </ul>
-                `;
+                    gameInfo.innerHTML = `
+                        <strong>Developer:</strong> Nintendo<br>
+                        <strong>Consoles:</strong> NES<br>
+                        <strong>Release Date:</strong> 1985
+                    `;
+                    break;
 
-                gameShortDescription.innerHTML = gameDetails[normalizedGameName].description;
-                gameImage.src = gameDetails[normalizedGameName].image;
-            } else {
-                gameDescription.innerHTML = `
-                    <strong>Objective:</strong> No objective available for this game.
-                `;
-                gameControls.innerHTML = `
-                    <strong>Controls:</strong> No controls available for this game.
-                `;
-                gameShortDescription.innerHTML = `
-                    <strong>Developer:</strong> Unknown <br>
-                    <strong>Consoles:</strong> Unknown <br>
-                    <strong>History:</strong> Unknown
-                `;
-                gameImage.src = 'path/to/default-image.jpg'; // Replace with a default image path
+                case normalizedGameName.includes('sonic the hedgehog'):
+                    gameDescription.innerHTML = `
+                        <strong>Objective:</strong> Stop Dr. Robotnik's evil plans by collecting rings and defeating enemies through fast-paced levels.
+                        <br><br>
+                        <strong>World:</strong> South Island <br>
+                        <strong>Enemy:</strong> Dr. Robotnik
+                    `;
+
+                    gameControls.innerHTML = `
+                        <strong>Controls:</strong><br>
+                        <ul>
+                            <li><kbd>Arrow Keys</kbd>: Move</li>
+                            <li><kbd>Space</kbd>: Jump</li>
+                            <li><kbd>A</kbd>: Spin Dash</li>
+                        </ul>
+                    `;
+
+                    gameInfo.innerHTML = `
+                        <strong>Developer:</strong> Sega<br>
+                        <strong>Consoles:</strong> Sega Genesis<br>
+                        <strong>Release Date:</strong> 1991
+                    `;
+                    break;
+
+                case normalizedGameName.includes('sub-terrania'):
+                    gameDescription.innerHTML = `
+                        <strong>Objective:</strong> Navigate through a hostile alien world and complete missions to save your comrades.
+                        <br><br>
+                        <strong>World:</strong> Alien Planet <br>
+                        <strong>Enemy:</strong> Aliens
+                    `;
+
+                    gameControls.innerHTML = `
+                        <strong>Controls:</strong><br>
+                        <ul>
+                            <li><kbd>Arrow Keys</kbd>: Move</li>
+                            <li><kbd>Space</kbd>: Fire Weapon</li>
+                            <li><kbd>Z</kbd>: Thrust</li>
+                        </ul>
+                    `;
+
+                    gameInfo.innerHTML = `
+                        <strong>Developer:</strong> Zyrinx<br>
+                        <strong>Consoles:</strong> Sega Genesis<br>
+                        <strong>Release Date:</strong> 1990
+                    `;
+                    break;
+
+                case normalizedGameName.includes('dream land'):
+                    gameDescription.innerHTML = `
+                        <strong>Objective:</strong> Guide Kirby to defeat King Dedede and restore the stolen food to Dream Land.
+                        <br><br>
+                        <strong>World:</strong> Dream Land <br>
+                        <strong>Enemy:</strong> King Dedede
+                    `;
+
+                    gameControls.innerHTML = `
+                        <strong>Controls:</strong><br>
+                        <ul>
+                            <li><kbd>Arrow Keys</kbd>: Move</li>
+                            <li><kbd>Space</kbd>: Jump</li>
+                            <li><kbd>A</kbd>: Inhale</li>
+                            <li><kbd>S</kbd>: Exhale</li>
+                        </ul>
+                    `;
+
+                    gameInfo.innerHTML = `
+                        <strong>Developer:</strong> HAL Laboratory<br>
+                        <strong>Consoles:</strong> Game Boy<br>
+                        <strong>Release Date:</strong> 1992
+                    `;
+                    break;
+
+                default:
+                    gameDescription.innerHTML = `
+                        <strong>Objective:</strong> No objective available for this game.
+                    `;
+                    gameControls.innerHTML = `
+                        <strong>Controls:</strong> No controls available for this game.
+                    `;
+
+                    gameInfo.innerHTML = `
+                        <strong>Developer:</strong> Unknown<br>
+                        <strong>Consoles:</strong> Unknown<br>
+                        <strong>Release Date:</strong> Unknown
+                    `;
+                    break;
             }
         };
     </script>
 
     <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
-</div>
-
-<!-- Additional Section for Game Selection -->
-<div class="container mt-5">
-    <div class="row">
-      <% items.forEach(item => { %>
-        <div class="col-md-4 mb-4">
-          <div class="card text-bg-dark">
-              <a href="/game/<%= item._id %>">
-                <div class="ratio" style="--bs-aspect-ratio: 115%;">
-                  <img src="<%= item.image %>" class="object-fit-contain rounded" alt="...">
-                </div>
-                <div class="card-img-overlay">
-                </div>
-              </a>
-            </div>
-        </div>
-      <% }) %>
-    </div>
-</div>
-
-<!-- Pagination Buttons -->
-<div class="container">
-  <p></p>
-  <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-      <li class="page-item">
-        <a class="page-link" href="/prev">Previous</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="/next">Next</a>
-      </li>
-    </ul>
-  </nav>
 </div>
