@@ -21,8 +21,6 @@
                     <% if (req.user.checkSub) {%>
                         <!-- 2024-12-31 -->
                         <div class="mt-2">Expires on: <strong> <span style="color: yellow;"><%= req.user.formatDateSub %></span></strong></div>
-                    <% } else { %>
-                        <div class="mt-2">Expires on: <strong> <span style="color: red;"><%= req.user.formatDateSub %></span></strong></div>
                     <% }  %>
                 </div>
             </div>
