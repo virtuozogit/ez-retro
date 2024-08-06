@@ -164,17 +164,12 @@
             <a class="btn btn-outline-success me-3" type="button" id="loginBtn" href="/login">Login</a>
           <% } %>
   
-          <!-- Animated Search Bar -->
-          <div class="search-container" id="searchContainer">
-            <input type="text" class="search-input" id="searchInput" placeholder="Search..." aria-label="Search" value="<%= req.query.searchTags %>" name="searchTags">
-            
-               <!-- Search bar -->
-        <div class="col-md-8 ms-3">
-          <form class="d-flex" role="search" method="get" action="/">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="<%= req.query.searchTags %>" name="searchTags">
-              <button class="btn btn-primary" type="submit">Search</button>
-          </form>
-        </div>
+           <!-- Search bar -->
+           <div class="col-md-8 ms-3">
+            <form class="d-flex" role="search" method="get" action="/">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="<%= req.query.searchTags %>" name="searchTags">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
           </div>
         </div>
       </div>
