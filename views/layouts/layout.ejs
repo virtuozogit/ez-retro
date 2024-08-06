@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EZRETRO</title>
+    <title>EZRetro</title>
     
     <link rel="icon" href="/assets/logo.png" type="image/png">
 
@@ -18,150 +18,172 @@
     <!-- Custom CSS -->
     <style>
         body {
-            font-family: 'Press Start 2P', cursive; /* Retro-style font for a gaming vibe */
-            color: #e0e0e0; /* Light text color for readability */
-            background-image: url('/assets/background.png'); /* Path to your background image */
-            background-size: cover; /* Ensure the image covers the entire background */
-            background-position: center; /* Center the image */
-            background-attachment: fixed; /* Fix the image in place while scrolling */
-            background-color: #121212; /* Dark fallback color for contrast */
-        } 
+    font-family: 'Press Start 2P', cursive; /* Retro-style font for a gaming vibe */
+    color: #e0e0e0; /* Light text color for readability */
+    background-image: url('/assets/background.png'); /* Path to your background image */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Fix the image in place while scrolling */
+    background-color: #121212; /* Dark fallback color for contrast */
+}
 
-        .navbar {
-            background-image: linear-gradient(45deg, #661d15, #802a21); /* Darker red gradient */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
+/* Navbar styles */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px); /* Blur effect */
+    padding: 10px 0; /* Padding for navbar */
+}
 
-        .navbar-brand {
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-            color: #fff !important;
-            font-family: 'Press Start 2P', cursive; /* Apply retro font */
-        }
+.navbar-brand {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: #66fcf1 !important; /* Neon blue color */
+    font-family: 'Press Start 2P', cursive; /* Apply retro font */
+    text-shadow: 0 0 5px #66fcf1, 0 0 10px #66fcf1, 0 0 20px #66fcf1;
+    animation: text-glow 1.5s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
 
-        .nav-link {
-            color: #f8f9fa !important;
-            transition: color 0.3s ease;
-            font-family: 'Press Start 2P', cursive; /* Apply retro font */
-        }
+.nav-link {
+    color: #f8f9fa !important;
+    transition: color 0.3s ease;
+    font-family: 'Press Start 2P', cursive; /* Apply retro font */
+}
 
-        .nav-link:hover {
-            color: #ffc107 !important; /* Highlight link on hover */
-        }
+.nav-link:hover {
+    color: #ffc107 !important; /* Highlight link on hover */
+}
 
-        .btn-outline-warning, .btn-outline-danger, .btn-outline-blue {
-            border-radius: 20px;
-            border-width: 2px;
-            font-family: 'Press Start 2P', cursive; /* Apply retro font */
-        }
+.btn-outline-warning, .btn-outline-danger, .btn-outline-blue {
+    border-radius: 20px;
+    border-width: 2px;
+    font-family: 'Press Start 2P', cursive; /* Apply retro font */
+}
 
-        .btn-outline-warning:hover {
-            background-color: #ffc107;
-            color: #000;
-        }
+.btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: #000;
+}
 
-        .btn-outline-danger:hover {
-            background-color: #d34a24;
-            color: #fff;
-        }
+.btn-outline-danger:hover {
+    background-color: #d34a24;
+    color: #fff;
+}
 
-        .btn-outline-blue {
-            border-color: hwb(211 27% 0%); /* Blue border color */
-            color: hwb(211 27% 0%); /* Blue text color */
-        }
+.btn-outline-blue {
+    border-color: hwb(211 27% 0%); /* Blue border color */
+    color: hwb(211 27% 0%); /* Blue text color */
+}
 
-        .btn-outline-blue:hover {
-            background-color: #007bff; /* Blue background on hover */
-            color: #fff; /* White text on hover */
-        }
+.btn-outline-blue:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: #fff; /* White text on hover */
+}
 
-        .form-control {
-            border-radius: 30px;
-            background-color: #343a40;
-            color: #fff;
-            border: 1px solid #495057;
-            transition: border-color 0.3s ease;
-            font-family: 'Press Start 2P', cursive; /* Apply retro font */
-        }
+.form-control {
+    border-radius: 30px;
+    background-color: #343a40;
+    color: #fff;
+    border: 1px solid #495057;
+    transition: border-color 0.3s ease;
+    font-family: 'Press Start 2P', cursive; /* Apply retro font */
+}
 
-        .form-control:focus {
-            border-color: #0d6efd;
-            box-shadow: none;
-        }
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: none;
+}
 
-        .btn-primary {
-            border-radius: 20px;
-            background-image: linear-gradient(45deg, #6610f2, #0d6efd);
-            border: none;
-            font-family: 'Press Start 2P', cursive; /* Apply retro font */
-            width: 150px; /* Adjust button width */
-            font-size: 12px; /* Adjust font size to fit text */
-            padding: 8px 15px; /* Ensure padding accommodates text */
-        }
+.btn-primary {
+    border-radius: 20px;
+    background-image: linear-gradient(45deg, #6610f2, #0d6efd);
+    border: none;
+    font-family: 'Press Start 2P', cursive; /* Apply retro font */
+    width: 150px; /* Adjust button width */
+    font-size: 12px; /* Adjust font size to fit text */
+    padding: 8px 15px; /* Ensure padding accommodates text */
+}
 
-        .btn-primary:hover {
-            background-image: linear-gradient(45deg, #0d6efd, #6610f2);
-            color: #fff;
-        }
+.btn-primary:hover {
+    background-image: linear-gradient(45deg, #0d6efd, #6610f2);
+    color: #fff;
+}
 
-        /* Custom styles for the main content area */
-        .content {
-            margin-top: 50px;
-        }
+/* Retro hover animation for navbar links */
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
 
-        /* Retro hover animation for navbar links */
-        .nav-link {
-            position: relative;
-            overflow: hidden;
-        }
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ffc107;
+    bottom: 0;
+    left: -100%;
+    transition: left 0.3s ease;
+}
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background-color: #ffc107;
-            bottom: 0;
-            left: -100%;
-            transition: left 0.3s ease;
-        }
+.nav-link:hover::after {
+    left: 0;
+}
 
-        .nav-link:hover::after {
-            left: 0;
-        }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .navbar-brand {
-                font-size: 1.2rem;
-            }
+    .btn {
+        font-size: 0.8rem;
+    }
 
-            .btn {
-                font-size: 0.8rem;
-            }
+    /* Mobile-specific adjustments for search form */
+    .form-control {
+        width: 200px; /* Smaller width on mobile */
+        font-size: 10px; /* Smaller font size on mobile */
+    }
 
-            /* Mobile-specific adjustments for search form */
-            .form-control {
-                width: 200px; /* Smaller width on mobile */
-                font-size: 10px; /* Smaller font size on mobile */
-            }
+    .btn-primary {
+        width: 100px; /* Adjust button width on mobile */
+        font-size: 10px; /* Adjust font size on mobile */
+    }
+}
 
-            .btn-primary {
-                width: 100px; /* Adjust button width on mobile */
-                font-size: 10px; /* Adjust font size on mobile */
-            }
-        }
+/* Text glow animation */
+@keyframes text-glow {
+    0% {
+        text-shadow: 0 0 5px #66fcf1, 0 0 10px #66fcf1, 0 0 20px #66fcf1;
+    }
+    50% {
+        text-shadow: 0 0 20px #66fcf1, 0 0 30px #66fcf1, 0 0 40px #66fcf1;
+    }
+    100% {
+        text-shadow: 0 0 5px #66fcf1, 0 0 10px #66fcf1, 0 0 20px #66fcf1;
+    }
+}
+
     </style>
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="/">
+        <a class="navbar-brand d-flex align-items-center justify-content-center" href="/">
             <!-- Logo Image -->
-            <img src="/assets/logo.png" alt="Logo" style="height: 60px; margin-right: 10px;">
+            <img src="/assets/logo.png" alt="Logo" style="height: 50px; margin-right: 10px;">
             <!-- Brand Text -->
-            <img src="/assets/name.png" alt="Logo" style="height: 50px;">
+            EZRetro
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
