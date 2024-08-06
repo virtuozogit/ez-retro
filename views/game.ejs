@@ -1,27 +1,27 @@
 <div class="container" style="height: 100vh;">
     <div class="row h-100 align-items-center">
         <!-- Game Display Container (Left Side) -->
-        <div class="col-md-7">
+        <div class="col-md-8"> <!-- Increased the size of the game display area -->
             <div style="width:100%; height:auto; aspect-ratio:3/2; max-width: 100%">
                 <div id="game"></div>
             </div>
         </div>
 
         <!-- Game Details and Controls Box (Right Side) -->
-        <div class="col-md-5">
-            <div class="game-info-box p-4" style="background-color: rgba(0, 0, 0, 0.7); border-radius: 10px; color: #fff; font-family: 'Press Start 2P', cursive;">
+        <div class="col-md-4"> <!-- Decreased the size of the information box -->
+            <div class="game-info-box p-4" style="background-color: rgba(0, 0, 0, 0.8); border-radius: 15px; color: #fff; font-family: 'Press Start 2P', cursive;">
                 <!-- Game Name Heading -->
-                <h1 class="game-title mb-4" style="color: #fff; font-family: 'Press Start 2P', cursive; font-size: 24px;">
+                <h1 class="game-title mb-4" style="color: #fff; font-family: 'Press Start 2P', cursive; font-size: 20px;">
                     <%= game.name %>
                 </h1>
 
                 <!-- Game Objective -->
-                <div id="game-description" class="mb-4" style="font-size: 16px;">
+                <div id="game-description" class="mb-4" style="font-size: 14px;">
                     <!-- Description will be filled in by JavaScript -->
                 </div>
 
                 <!-- Game Controls -->
-                <div id="game-controls" style="font-size: 16px;">
+                <div id="game-controls" style="font-size: 14px;">
                     <!-- Controls will be filled in by JavaScript -->
                 </div>
             </div>
