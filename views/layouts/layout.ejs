@@ -118,7 +118,6 @@
             position: relative;
             display: flex;
             align-items: center;
-            transition: all 0.4s ease;
         }
 
         .search-input {
@@ -128,7 +127,7 @@
             border: none;
             border-radius: 20px;
             background-color: transparent;
-            transition: all 0.4s ease;
+            transition: width 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
             font-family: 'Press Start 2P', cursive; /* Apply retro font */
             outline: none;
             color: #fff;
@@ -137,7 +136,7 @@
         }
 
         .search-container.active .search-input {
-            width: 220px;
+            width: 220px; /* Expanded width */
             padding: 5px 10px;
             border-color: #0d6efd;
             background-color: #343a40;
@@ -176,6 +175,10 @@
 
             .btn {
                 font-size: 0.8rem;
+            }
+
+            .search-input {
+                width: 150px; /* Adjust for smaller screens */
             }
         }
     </style>
