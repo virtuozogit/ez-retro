@@ -39,16 +39,16 @@
         <div class="card-body" style="padding: 25px 25px 17px 25px; font-size: medium;">
             <div class="row mb-3">
                 <div class="col-md-12">
-                    <h6>
+                    <div>
                         <% if (req.user.checkSub) {%>
                             Subscription Status: <span class="badge bg-success">Subscribed</span>
                         <% } else { %>
                             Subscription Status: <span class="badge bg-danger">Not Subscribed</span>
                         <% }  %>
-                    </h6>
+                    </div>
                     <% if (req.user.checkSub) {%>
                         <!-- 2024-12-31 -->
-                        <h6>Expires on: <strong><%= req.user.formatDateSub %></strong></h6>
+                        <div>Expires on: <strong><%= req.user.formatDateSub %></strong></div>
                     <% }  %>
                 </div>
             </div>
