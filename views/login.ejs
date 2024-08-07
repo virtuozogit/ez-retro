@@ -59,23 +59,20 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card mt-5">
-                <div class="card-header text-center">
-                    <h4>Login</h4>
-                </div>
                 <div class="card-body">
                     <div class="text-center mt-5 mb-5">
                         <h4>Login</h4>
                     </div>
                     <form action="/login" method="POST">
                         <p><%= error %></p>
-                        <div class="mb-3">
+                        <div class="label mb-3">
                             <label for="username" class="form-label">Username</label>
                             <div class="input-group mb-5">
                                 <span class="input-group-text" id="basic-addon1"> <i class="fa-solid fa-user"></i>  </span>
                                 <input type="text" class="form-control" id="username" name="username" placeholder="e.g. itisdev" aria-describedby="basic-addon1" value="<%= req.body.username %>">
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="label mb-3">
                             <label for="password" class="form-label">Password</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon2"> <i class="fa-solid fa-lock"></i>  </span>
@@ -132,6 +129,10 @@
     #button-login:hover{
         background: #76c442;
         color: black;
+    }
+
+    .label{
+        margin: 0 auto;
     }
     
 </style>
