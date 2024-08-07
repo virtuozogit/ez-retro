@@ -7,14 +7,13 @@
                         <h4>Login</h4>
                     </div>
                     <form action="/login" method="POST">
-                        <p><%= error %></p>
-                        <div class="mb-3">
+<!--                         <p><%= error %></p>
+ -->                        <div class="mb-3">
                             <label for="username" class="label form-label">Username</label>
                             <div class="input-group mb-5">
                                 <span class="input-group-text" id="basic-addon1"> <i class="fa-solid fa-user"></i>  </span>
                                 <input type="text" class="form-control" id="username" name="username" placeholder="e.g. itisdev" aria-describedby="basic-addon1" value="<%= req.body.username %>">
                             </div>
-                            <p><%= error %></p>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="label form-label">Password</label>
@@ -27,6 +26,7 @@
                     </form>
                 </div>
             </div>
+            <p><%= error %></p>
         </div>
     </div>
 </div>
