@@ -32,20 +32,20 @@
                 <div class="card-body">
                     <form action="/login" method="POST">
                         <p><%= error %></p>
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <div class="input-group">
+                       <!--  <div class="mb-3"> -->
+                           <!--  <label for="username" class="form-label">Username</label> -->
+                            <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"> <i class="fa-solid fa-user"></i>  </span>
                                 <input type="text" class="form-control" id="username" name="username" placeholder="e.g. itisdev" aria-describedby="basic-addon1" value="<%= req.body.username %>">
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <div class="input-group">
+                        <!-- </div> -->
+                        <!-- <div class="mb-3">
+                            <label for="password" class="form-label">Password</label> -->
+                            <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon2"> <i class="fa-solid fa-lock"></i>  </span>
                                 <input type="password" class="form-control w-75" id="password" name="password" aria-describedby="basic-addon2" value="<%= req.body.password %>">
                             </div>
-                        </div>
+                       <!--  </div> -->
                         <button type="submit" class="btn btn-primary w-100">Login</button>
                     </form>
                 </div>
@@ -70,6 +70,7 @@
         margin: 0 auto;
     }
 
+/*     Border Radius of Input Fields */    
     .form-control,
     .input-group-text {
         border-radius: 0;
