@@ -49,7 +49,7 @@
                                 <input type="password" class="form-control w-75" id="password" name="password" aria-describedby="basic-addon2" value="<%= req.body.password %>">
                             </div>
                        <!--  </div> -->
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" id="button-login" class="btn btn-primary mt-3" style="display: block; margin: 0 auto;">OK</button>
                     </form>
                 </div>
             </div>
@@ -63,7 +63,7 @@
 <style>
     .card{
         background-color: rgba(0, 123, 255, 0.5); /* Transparent blue */
-        backdrop-filter: blur(30px);  /* This will produce the blur */
+        backdrop-filter: blur(30px);  
         border: 2px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
     }
@@ -84,9 +84,10 @@
             margin: 0 auto;
             height: 50px;
     }
-    
 
-    .input-group-custom .form-control {
-            height: 45px; /* Adjust the height as needed */
+    #button-login{
+        background-image: linear-gradient(45deg, #aef210, #0d6efd);
+
     }
+    
 </style>
