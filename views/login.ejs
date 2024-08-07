@@ -7,7 +7,6 @@
                         <h4>Login</h4>
                     </div>
                     <form action="/login" method="POST">
-                         <p><%= error %></p>
                          <div class="mb-3">
                             <label for="username" class="label form-label">Username</label>
                             <div class="input-group mb-5">
@@ -26,6 +25,7 @@
                     </form>
                 </div>
             </div>
+            <p class="error"><%= error %></p>
         </div>
     </div>
 </div>
@@ -35,6 +35,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
 <style>
+    .error{
+        color: red;
+    }
+
     .card{
         background-color: rgb(21 33 47 / 50%); /* Transparent blue */
         backdrop-filter: blur(30px);  
