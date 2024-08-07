@@ -38,11 +38,13 @@
                                 <span class="input-group-text" id="basic-addon1"> <i class="fa-solid fa-user"></i>  </span>
                                 <input type="text" class="form-control" id="username" name="username" placeholder="e.g. itisdev" aria-describedby="basic-addon1" value="<%= req.body.username %>">
                             </div>
-                        
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control w-75" id="password" name="password" value="<%= req.body.password %>">
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon2"> <i class="fa-solid fa-lock"></i>  </span>
+                                <input type="password" class="form-control w-75" id="password" name="password" aria-describedby="basic-addon2" value="<%= req.body.password %>">
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Login</button>
                     </form>
