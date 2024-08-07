@@ -1,5 +1,10 @@
 <!-- Main Container for Navigation Arrows and Game Images -->
 <div class="container mt-5 position-relative">
+    <!-- Retro Title -->
+    <div class="text-center mb-4">
+        <h1 class="retro-title">Game Selection Portal</h1>
+    </div>
+
     <!-- Navigation Arrows Container -->
     <div class="d-flex align-items-center justify-content-between">
         <!-- Back Arrow -->
@@ -45,6 +50,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
 <style>
+/* Retro Title Styling */
+.retro-title {
+    font-family: 'Press Start 2P', cursive; /* Retro-style font */
+    font-size: 2.5rem;
+    color: #FFD700; /* Mustard Yellow */
+    text-shadow: 2px 2px 0 #000, 4px 4px 0 #ff0000, 6px 6px 0 #0000ff; /* Shadow for a 3D effect */
+    margin-bottom: 2rem;
+}
+
 /* Arrow Box Styling */
 .arrow-box {
     display: flex;
@@ -74,6 +88,7 @@
     overflow: hidden;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
     border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background for retro feel */
 }
 
 .game-card:hover {
@@ -99,13 +114,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Darker by default */
+    background: rgba(0, 0, 0, 0.6); /* Darker by default */
     opacity: 1; /* Fully opaque initially */
     transition: opacity 0.5s ease, background 0.5s ease;
 }
 
 .game-link:hover .card-overlay {
-    background: rgba(0, 0, 0, 0); /* Lighter on hover */
+    background: rgba(0, 0, 0, 0.3); /* Lighter on hover */
 }
 
 .card-title {
@@ -114,6 +129,7 @@
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
     text-align: center;
     margin: 0;
+    font-family: 'Press Start 2P', cursive; /* Matching font for a cohesive look */
 }
 
 .arrow-link {
@@ -178,5 +194,7 @@
     0% { left: -100px; } /* Start position (increased for visibility) */
     100% { left: 100%; } /* End position */
 }
-
 </style>
+
+<!-- Ensure to include Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
