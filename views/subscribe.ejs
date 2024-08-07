@@ -1,29 +1,95 @@
-<div class="container mt-5">
-    <h2>Subscription</h2>
-    <form action="/subscribe" method="POST">
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="subscriptionPlan">Subscription Plan</label>
-                <select class="form-control" id="subscriptionPlan" required>
+<div class="subscription-container mt-5">
+    <h2 class="subscription-title text-center mb-4">Subscribe to Your Gaming Adventure</h2>
+    <form action="/subscribe" method="POST" class="subscription-form">
+        <div class="form-row mb-3">
+            <div class="form-group col-md-6 mb-4">
+                <label for="subscriptionPlan" class="form-label">Subscription Plan</label>
+                <select class="form-control form-control-lg" id="subscriptionPlan" required>
                     <option value="standard">Standard</option>
+                    <option value="premium">Premium</option>
                 </select>
             </div>
-            <div class="form-group col-md-6">
-                <label for="creditCardNumber">Credit Card Number</label>
-                <input type="text" class="form-control" id="creditCardNumber" placeholder="Enter credit card number" required>
+            <div class="form-group col-md-6 mb-4">
+                <label for="creditCardNumber" class="form-label">Credit Card Number</label>
+                <input type="text" class="form-control form-control-lg" id="creditCardNumber" placeholder="Enter credit card number" required>
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="phoneNumber">Phone Number</label>
-                <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter phone number" required>
+        <div class="form-row mb-3">
+            <div class="form-group col-md-6 mb-4">
+                <label for="phoneNumber" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control form-control-lg" id="phoneNumber" placeholder="Enter phone number" required>
             </div>
-            <div class="form-group col-md-6">
-                <label for="address">Address</label>
-                <input type="text" class="form-control" id="address" placeholder="Enter address" required>
+            <div class="form-group col-md-6 mb-4">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control form-control-lg" id="address" placeholder="Enter address" required>
             </div>
         </div>
-        <br>
-        <button type="submit" class="btn btn-primary">Subscribe</button>
+        <button type="submit" class="btn btn-lg btn-primary w-100">Subscribe Now</button>
     </form>
 </div>
+
+<!-- Include Bootstrap CSS for layout and styling -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Include Google Fonts for 'Press Start 2P' -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+    /* Overall Container Styling */
+    .subscription-container {
+        max-width: 800px;
+        margin: auto;
+        background-color: #ffc107; /* Container background color */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Form Control Styling */
+    .form-control {
+        height: 50px;
+        font-size: 1rem;
+        font-family: 'Press Start 2P', cursive; /* Use 'Press Start 2P' font */
+        background-color: #fff; /* White background for form inputs */
+        color: #333; /* Dark text color for readability */
+    }
+
+    /* Form Control Focus Styling */
+    .form-control:focus {
+        box-shadow: none;
+        border-color: #661d15; /* Dark red border on focus */
+    }
+
+    /* Form Label Styling */
+    .form-label {
+        font-weight: 500;
+        color: #333;
+        font-family: 'Press Start 2P', cursive; /* Use 'Press Start 2P' font */
+    }
+
+    /* Heading Styling */
+    .subscription-title {
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 20px;
+        font-family: 'Press Start 2P', cursive; /* Use 'Press Start 2P' font */
+    }
+
+    /* Button Styling */
+    .btn-primary {
+        background-color: #661d15;
+        border-color: #661d15;
+        transition: background-color 0.3s ease;
+        font-family: 'Press Start 2P', cursive; /* Use 'Press Start 2P' font */
+    }
+
+    .btn-primary:hover {
+        background-color: #90291f;
+        border-color: #90291f;
+    }
+
+    /* Spacing Between Form Rows */
+    .form-row {
+        margin-bottom: 20px;
+    }
+</style>
