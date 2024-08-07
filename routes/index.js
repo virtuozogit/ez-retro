@@ -87,7 +87,7 @@ router.get('/login', (req, res) => {
 })
 
 // Login POST
-/* router.post("/login", (req, res) => {
+router.post("/login", (req, res) => {
     const user = new User({
         username: req.body.username,
         password: req.body.password,
@@ -111,77 +111,7 @@ router.get('/login', (req, res) => {
         }
     });
 });
-  */
-// Login POST
-router.post("/login", (req, res) => {
-    const { username, password } = req.body;
-
-    // Find the user by username
-    User.findOne({ username: username }, (err, user) => {
-        if (err) {
-            console.log(err);
-            return res.render('login', {
-                req: req,
-                username: req.body.username,
-                password: req.body.password,
-                error: 'An error occurred. Please try again later.'
-            });
-        }
-
-        if (!user) {
-            // Username not found
-            return res.render('login', {
-                req: req,
-                username: req.body.username,
-                password: req.body.password,
-                error: 'Incorrect username. Please check your username and try again.'
-            });
-        }
-
-        // Check if the password matches
-        user.comparePassword(password, (err, isMatch) => {
-            if (err) {
-                console.log(err);
-                return res.render('login', {
-                    req: req,
-                    username: req.body.username,
-                    password: req.body.password,
-                    error: 'An error occurred. Please try again later.'
-                });
-            }
-
-            if (!isMatch) {
-                // Password is incorrect
-                return res.render('login', {
-                    req: req,
-                    username: req.body.username,
-                    password: req.body.password,
-                    error: 'Incorrect password. Please try again.'
-                });
-            }
-
-            // If username and password are correct, log in the user
-            req.login(user, (err) => {
-                if (err) {
-                    console.log(err);
-                    return res.render('login', {
-                        req: req,
-                        username: req.body.username,
-                        password: req.body.password,
-                        error: 'An error occurred. Please try again later.'
-                    });
-                }
-                passport.authenticate('local', {
-                    failureRedirect: '/login'
-                })(req, res, () => {
-                    res.redirect('/');
-                });
-            });
-        });
-    });
-});
-
-
+ 
 // Register GET
 router.get('/register', (req, res) => {
     console.log('Register');
