@@ -87,7 +87,7 @@ router.get('/login', (req, res) => {
 })
 
 // Login POST
-/* router.post("/login", (req, res) => {
+router.post("/login", (req, res) => {
     const user = new User({
         username: req.body.username,
         password: req.body.password,
@@ -111,76 +111,7 @@ router.get('/login', (req, res) => {
         }
     });
 });
- */
-// Login POST
-router.post('/login', (req, res) => {
-    const { username, password } = req.body;
-
-    // Find user in the database
-    User.findOne({ username: username }, (err, user) => {
-        if (err) {
-            console.log(err);
-            res.render('login', {
-                req: req,
-                username: username,
-                password: password,
-                error: 'An error occurred during login.'
-            });
-        }
-        
-        if (!user) {
-            // No user found with that username
-                res.render('login', {
-                req: req,
-                username: username,
-                password: password,
-                error: 'Incorrect username.'
-            });
-        }
-
-        // Authenticate password
-        user.authenticate(password, (err, isMatch) => {
-            if (err) {
-                console.log(err);
-                res.render('login', {
-                    req: req,
-                    username: username,
-                    password: password,
-                    error: 'An error occurred during login.'
-                });
-            }
-
-            if (!isMatch) {
-                // Password does not match
-                res.render('login', {
-                    req: req,
-                    username: username,
-                    password: password,
-                    error: 'Incorrect password.'
-                });
-            }
-
-            // Log in the user
-            req.login(user, function (err) {
-                if (err) {
-                    console.log(err);
-                    res.render('login', {
-                        req: req,
-                        username: username,
-                        password: password,
-                        error: 'An error occurred during login.'
-                    });
-                } else {
-                    passport.authenticate('local', {
-                        failureRedirect: '/login'
-                    })(req, res, function () {
-                        res.redirect('/');
-                    });
-                }
-            });
-        });
-    });
-});
+ 
 
 // Register GET
 router.get('/register', (req, res) => {
