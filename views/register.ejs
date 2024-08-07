@@ -1,25 +1,90 @@
-<div class="container" data-bs-theme="dark">
+<div class="container center-screen" data-bs-theme="dark">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card mt-5">
-                <div class="card-header text-center">
-                    <h4>Register</h4>
-                </div>
                 <div class="card-body">
+                    <div class="text-center mt-5 mb-5">
+                        <h4>Register</h4>
+                    </div>
                     <form action="/register" method="POST">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
+                            <div class="input-group mb-5">
+                                <span class="input-group-text" id="basic-addon1"> <i class="fa-solid fa-user"></i>  </span>
+                                <input type="text" class="form-control" id="username" name="username" aria-describedby="basic-addon1" required>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon2"> <i class="fa-solid fa-lock"></i>  </span>
+                                <input type="password" class="form-control" id="password" name="password" aria-describedby="basic-addon2" required>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">Register</button>
+                        <button type="submit" id="button-register" class="btn btn-primary mt-5 mb-5" style="display: block; margin: 0 auto;">Register</button>
                     </form>
-                    <%= error %>
                 </div>
             </div>
+            <p class="error card-subtitle mt-2"><%= error %></p>
         </div>
     </div>
 </div>
+
+
+<!-- Ensure Font Awesome is included for icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+<style>
+    .error{
+        color: red;
+    }
+
+    .card{
+        background-color: rgb(21 33 47 / 50%); /* Transparent blue */
+        backdrop-filter: blur(30px);  
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+/*     Border Radius of Input Fields */    
+    .form-control,  
+    .input-group-text {
+        border-radius: 0;
+    }
+
+    .input-group{
+            width: 80%;
+            margin: 0 auto;
+            height: 50px;
+    }
+
+    #button-register{
+    border: 1px solid black;
+    color: black;
+    font-weight: bold;
+    border-radius: 0px;
+    background: #92CD41;
+    box-shadow: inset(-4px)(-4px) 0px 0px #4AA52E;
+    height: 45px;
+    border-radius: 10px;
+    }
+   
+    #button-register:hover{
+        background: #76c442;
+        color: black;
+    }
+
+    .label{
+    margin-left: 65px;            
+    }
+    
+    .center-screen{
+        transform: translate(0%, 25%);
+    }
+
+</style>
