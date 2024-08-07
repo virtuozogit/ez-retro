@@ -1,6 +1,6 @@
-<div class="container mt-5">
-    <h2 class="text-center mb-4">Subscribe to Your Gaming Adventure</h2>
-    <form action="/subscribe" method="POST">
+<div class="subscription-container mt-5">
+    <h2 class="subscription-title text-center mb-4">Subscribe to Your Gaming Adventure</h2>
+    <form action="/subscribe" method="POST" class="subscription-form">
         <div class="form-row mb-3">
             <div class="form-group col-md-6 mb-4">
                 <label for="subscriptionPlan" class="form-label">Subscription Plan</label>
@@ -28,42 +28,51 @@
     </form>
 </div>
 
-<!-- Ensure Bootstrap CSS is included -->
+<!-- Include Bootstrap CSS for layout and styling -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Include Google Fonts for 'Press Start 2P' -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
     /* Overall Container Styling */
-    .container {
+    .subscription-container {
         max-width: 800px;
         margin: auto;
-        background-color: #f9f9f9;
+        background-color: #ffc107; /* Container background color */
         padding: 30px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* Form Styling */
+    /* Form Control Styling */
     .form-control {
         height: 50px;
         font-size: 1rem;
+        font-family: 'Press Start 2P', cursive; /* Use 'Press Start 2P' font */
+        background-color: #fff; /* White background for form inputs */
+        color: #333; /* Dark text color for readability */
     }
 
+    /* Form Control Focus Styling */
     .form-control:focus {
         box-shadow: none;
-        border-color: #661d15;
+        border-color: #661d15; /* Dark red border on focus */
     }
 
     /* Form Label Styling */
     .form-label {
         font-weight: 500;
         color: #333;
+        font-family: 'Press Start 2P', cursive; /* Use 'Press Start 2P' font */
     }
 
     /* Heading Styling */
-    h2 {
+    .subscription-title {
         font-weight: 700;
         color: #333;
         margin-bottom: 20px;
+        font-family: 'Press Start 2P', cursive; /* Use 'Press Start 2P' font */
     }
 
     /* Button Styling */
@@ -71,6 +80,7 @@
         background-color: #661d15;
         border-color: #661d15;
         transition: background-color 0.3s ease;
+        font-family: 'Press Start 2P', cursive; /* Use 'Press Start 2P' font */
     }
 
     .btn-primary:hover {
