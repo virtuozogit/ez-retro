@@ -87,7 +87,7 @@ router.get('/login', (req, res) => {
 })
 
 // Login POST
-router.post("/login", (req, res) => {
+/* router.post("/login", (req, res) => {
     const user = new User({
         username: req.body.username,
         password: req.body.password,
@@ -111,7 +111,48 @@ router.post("/login", (req, res) => {
         }
     });
 });
- 
+  */
+
+// Login POST
+router.post("/login", (req, res, next) => {
+    // Use Passport's `local` strategy to authenticate the user
+    passport.authenticate("local", (err, user, info) => {
+        if (err) {
+            // Handle any errors that occurred during authentication
+            console.log(err);
+            return res.render('login', {
+                username: req.body.username,
+                password: req.body.password,
+                error: 'An error occurred during authentication. Please try again later.'
+            });
+        }
+
+        if (!user) {
+            // Authentication failed, show appropriate error
+            return res.render('login', {
+                username: req.body.username,
+                password: req.body.password,
+                error: 'Incorrect username or password.'
+            });
+        }
+
+        // Successful authentication
+        req.login(user, (err) => {
+            if (err) {
+                console.log(err);
+                return res.render('login', {
+                    username: req.body.username,
+                    password: req.body.password,
+                    error: 'An error occurred during login. Please try again later.'
+                });
+            }
+
+            // Redirect to home page after successful login
+            return res.redirect('/');
+        });
+    })(req, res, next);
+});
+
 // Register GET
 router.get('/register', (req, res) => {
     console.log('Register');
