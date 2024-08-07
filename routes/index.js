@@ -120,7 +120,7 @@ router.post('/login', (req, res) => {
     User.findOne({ username: username }, (err, user) => {
         if (err) {
             console.log(err);
-            return res.render('login', {
+            res.render('login', {
                 req: req,
                 username: username,
                 password: password,
@@ -130,7 +130,7 @@ router.post('/login', (req, res) => {
         
         if (!user) {
             // No user found with that username
-            return res.render('login', {
+                res.render('login', {
                 req: req,
                 username: username,
                 password: password,
@@ -142,7 +142,7 @@ router.post('/login', (req, res) => {
         user.authenticate(password, (err, isMatch) => {
             if (err) {
                 console.log(err);
-                return res.render('login', {
+                res.render('login', {
                     req: req,
                     username: username,
                     password: password,
@@ -152,7 +152,7 @@ router.post('/login', (req, res) => {
 
             if (!isMatch) {
                 // Password does not match
-                return res.render('login', {
+                res.render('login', {
                     req: req,
                     username: username,
                     password: password,
@@ -164,7 +164,7 @@ router.post('/login', (req, res) => {
             req.login(user, function (err) {
                 if (err) {
                     console.log(err);
-                    return res.render('login', {
+                    res.render('login', {
                         req: req,
                         username: username,
                         password: password,
