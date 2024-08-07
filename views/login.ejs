@@ -34,7 +34,7 @@
                         <p><%= error %></p>
                        <!--  <div class="mb-3"> -->
                            <!--  <label for="username" class="form-label">Username</label> -->
-                            <div class="input-group mb-3 w-50 align-items-center">
+                            <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"> <i class="fa-solid fa-user"></i>  </span>
                                 <input type="text" class="form-control" id="username" name="username" placeholder="e.g. itisdev" aria-describedby="basic-addon1" value="<%= req.body.username %>">
                             </div>
@@ -71,13 +71,13 @@
     }
 
 /*     Border Radius of Input Fields */    
-    .form-control,
+    .form-control,  
     .input-group-text {
         border-radius: 0;
     }
 
     .input-group{
-            width: 50%;
+            width: 75%;
             margin: 0 auto;
     }
     
