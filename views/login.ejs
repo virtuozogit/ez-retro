@@ -22,6 +22,30 @@
             </div>
         </div>
     </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-header text-center">
+                    <h4>Login</h4>
+                </div>
+                <div class="card-body">
+                    <form action="/login" method="POST">
+                        <p><%= error %></p>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="e.g. itisdev" value="<%= req.body.username %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" value="<%= req.body.password %>">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <style>
@@ -31,5 +55,10 @@
         border: 2px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
     }
+
+    .form-container {
+            width: 80%;
+            margin: 0 auto;
+        }
 
 </style>
