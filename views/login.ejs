@@ -34,7 +34,13 @@
                         <p><%= error %></p>
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control w-50" id="username" name="username" placeholder="e.g. itisdev" value="<%= req.body.username %>">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </span>
+                                <input type="text" class="form-control w-50" id="username" name="username" placeholder="e.g. itisdev" value="<%= req.body.username %>">
+                            </div>
+                        
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
