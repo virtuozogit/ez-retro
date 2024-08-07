@@ -30,14 +30,14 @@
                     <h4>Login</h4>
                 </div> -->
                 <div class="card-body">
-                    <div class="text-center mt-3 mb-4">
+                    <div class="text-center mt-5 mb-5">
                         <h4>Login</h4>
                     </div>
                     <form action="/login" method="POST">
                         <p><%= error %></p>
                        <!--  <div class="mb-3"> -->
                            <!--  <label for="username" class="form-label">Username</label> -->
-                            <div class="input-group mb-4">
+                            <div class="input-group mb-5">
                                 <span class="input-group-text" id="basic-addon1"> <i class="fa-solid fa-user"></i>  </span>
                                 <input type="text" class="form-control" id="username" name="username" placeholder="e.g. itisdev" aria-describedby="basic-addon1" value="<%= req.body.username %>">
                             </div>
@@ -49,7 +49,7 @@
                                 <input type="password" class="form-control w-75" id="password" name="password" aria-describedby="basic-addon2" value="<%= req.body.password %>">
                             </div>
                        <!--  </div> -->
-                        <button type="submit" id="button-login" class="btn btn-primary mt-3" style="display: block; margin: 0 auto;">OK</button>
+                        <button type="submit" id="button-login" class="btn btn-primary mt-4" style="display: block; margin: 0 auto;">OK</button>
                     </form>
                 </div>
             </div>
@@ -62,7 +62,7 @@
 
 <style>
     .card{
-        background-color: rgba(0, 123, 255, 0.5); /* Transparent blue */
+        background-color: rgb(21 33 47 / 50%); /* Transparent blue */
         backdrop-filter: blur(30px);  
         border: 2px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
@@ -94,6 +94,8 @@
     border-radius: 0px;
     background: #92CD41;
     box-shadow: inset(-4px)(-4px) 0px 0px #4AA52E;
+    height: 45px;
+    border-radius: 10px;
     }
    
     #button-login:hover{
