@@ -38,7 +38,7 @@
                             Community Access & Support
                         </li>
                     </ul>
-                    <a href="/subscribe" class="btn btn-lg btn-primary d-block mx-auto">Buy</a>
+                    <a href="/subscribe-standard" class="btn btn-lg btn-primary d-block mx-auto btn-custom">Buy</a>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
         <!-- Premium Plan -->
         <div class="col-md-4">
             <div class="card premium-card">
-                <div class="card-header text-center">
+                <div class="card-header text-center premium-header">
                     <h4 class="my-0 font-weight-normal">Premium</h4>
                 </div>
                 <div class="card-body">
@@ -81,7 +81,7 @@
                             Community Access and Priority Customer Support
                         </li>
                     </ul>
-                    <a href="/subscribe" class="btn btn-lg btn-primary d-block mx-auto">Buy</a>
+                    <a href="/subscribe-premium" class="btn btn-lg btn-primary d-block mx-auto btn-custom">Buy</a>
                 </div>
             </div>
         </div>
@@ -117,6 +117,10 @@
         padding: 15px;
     }
 
+    .premium-header {
+        background-color: #ffc107; /* Gold color for premium plan */
+    }
+
     .pricing-card-title {
         color: #333;
         font-size: 2rem;
@@ -140,5 +144,11 @@
     .btn-primary:hover {
         background-color: #90291f;
         border-color: #90291f;
+    }
+
+    .btn-custom {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+        border-radius: 5px;
     }
 </style>
