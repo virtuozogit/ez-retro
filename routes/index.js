@@ -100,7 +100,7 @@ router.post("/login", (req, res) => {
                 req: req,
                 username: req.body.username,
                 password: req.body.password,
-                error : 'Incorrect username/password'
+                error : 'Incorrect username or password'
             });
         } else {
           passport.authenticate("local",{
