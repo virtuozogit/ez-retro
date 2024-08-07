@@ -118,8 +118,8 @@ router.post("/login", (req, res, next) => {
     // Use Passport's `local` strategy to authenticate the user
     passport.authenticate("local", (err, user, info) => {
         if (err) {
-            // Handle any errors that occurred during authentication
-            console.log(err);
+            // Log any errors and render the login page with an error message
+            console.error('Authentication error:', err);
             return res.render('login', {
                 username: req.body.username,
                 password: req.body.password,
@@ -128,18 +128,18 @@ router.post("/login", (req, res, next) => {
         }
 
         if (!user) {
-            // Authentication failed, show appropriate error
+            // Authentication failed, show the error message from `info`
             return res.render('login', {
                 username: req.body.username,
                 password: req.body.password,
-                error: 'Incorrect username or password.'
+                error: info.message || 'Incorrect username or password.'
             });
         }
 
         // Successful authentication
         req.login(user, (err) => {
             if (err) {
-                console.log(err);
+                console.error('Login error:', err);
                 return res.render('login', {
                     username: req.body.username,
                     password: req.body.password,
@@ -152,6 +152,7 @@ router.post("/login", (req, res, next) => {
         });
     })(req, res, next);
 });
+
 
 // Register GET
 router.get('/register', (req, res) => {

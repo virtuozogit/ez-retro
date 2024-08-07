@@ -25,8 +25,13 @@
                     </form>
                 </div>
             </div>
-            <p class="error card-subtitle mt-2"><%= error %></p>
-        </div>
+            <% if (error) { %>
+                <div class="error card-subtitle mt-2">
+                    <%= error %>
+                </div>
+            <% } %>
+<!--             <p class="error card-subtitle mt-2"><%= error %></p>
+ -->        </div>
     </div>
 </div>
 
